@@ -1,0 +1,87 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contents %>
+    <%= f.text_area :contents %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skintype %>
+    <%= f.text_field :skintype %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :atopy %>
+    <%= f.check_box :atopy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pimple %>
+    <%= f.check_box :pimple %>
+  </div>
+
+  <div class="field">
+    <%= f.label :allergy %>
+    <%= f.check_box :allergy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bb %>
+    <%= f.check_box :bb %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lip %>
+    <%= f.check_box :lip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eyebrow %>
+    <%= f.check_box :eyebrow %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eyeline %>
+    <%= f.check_box :eyeline %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.check_box :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skincolor %>
+    <%= f.number_field :skincolor %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

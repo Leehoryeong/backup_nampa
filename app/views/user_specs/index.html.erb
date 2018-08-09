@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Specs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Skintype</th>
+      <th>Age</th>
+      <th>Atopy</th>
+      <th>Pimple</th>
+      <th>Allergy</th>
+      <th>Bb</th>
+      <th>Lip</th>
+      <th>Eyebrow</th>
+      <th>Eyeline</th>
+      <th>Color</th>
+      <th>Skincolor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_specs.each do |user_spec| %>
+      <tr>
+        <td><%= user_spec.skintype %></td>
+        <td><%= user_spec.age %></td>
+        <td><%= user_spec.atopy %></td>
+        <td><%= user_spec.pimple %></td>
+        <td><%= user_spec.allergy %></td>
+        <td><%= user_spec.bb %></td>
+        <td><%= user_spec.lip %></td>
+        <td><%= user_spec.eyebrow %></td>
+        <td><%= user_spec.eyeline %></td>
+        <td><%= user_spec.color %></td>
+        <td><%= user_spec.skincolor %></td>
+        <td><%= link_to 'Show', user_spec %></td>
+        <td><%= link_to 'Edit', edit_user_spec_path(user_spec) %></td>
+        <td><%= link_to 'Destroy', user_spec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Spec', new_user_spec_path %>
