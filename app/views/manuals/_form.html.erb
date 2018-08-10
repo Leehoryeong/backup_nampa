@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.select :category, ['피부', '화장', '헤어', '바디'] %>
+  </div>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
