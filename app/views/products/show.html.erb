@@ -77,3 +77,13 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+<hr>
+
+<div class="">
+  <h2><%= @product.reviews.count %> Reviews</h2>
+  <%= render @product.reviews %>
+  <hr>
+  
+  <h3>Add a Review: </h3>
+  <%= render "reviews/form" %>
+</div>

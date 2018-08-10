@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="field">
     <%= f.label :category %>
     <%= f.select :category, ['피부', '화장', '헤어', '바디'] %>
@@ -32,12 +32,12 @@
 
   <div class="field">
     <%= f.label :skintype %>
-    <%= f.text_field :skintype %>
+    <%= f.select :skintype, ['건성', '지성', '복합성', '중성', '민감성'] %>
   </div>
 
   <div class="field">
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.select :age, ['10대', '20대초반', '20후반', '30대초반', '30후반', '40대이상'] %>
   </div>
 
   <div class="field">
@@ -84,7 +84,7 @@
     <%= f.label :skincolor %>
     <%= f.number_field :skincolor %>
   </div>
-  
+
 
 
   <div class="actions">

@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :manuals
+  has_many :comments
+  has_many :reviews
   has_one :userspec
 end
