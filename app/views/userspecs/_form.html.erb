@@ -1,10 +1,10 @@
-<%= form_for(user_spec) do |f| %>
-  <% if user_spec.errors.any? %>
+<%= form_for(userspec) do |f| %>
+  <% if userspec.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user_spec.errors.count, "error") %> prohibited this user_spec from being saved:</h2>
+      <h2><%= pluralize(userspec.errors.count, "error") %> prohibited this userspec from being saved:</h2>
 
       <ul>
-      <% user_spec.errors.full_messages.each do |message| %>
+      <% userspec.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :skintype %>
-    <%= f.text_field :skintype %>
+    <%= f.select :skintype, ['건성', '지성', '복합성', '중성', '민감성'] %>
   </div>
 
   <div class="field">
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.select :age, ['10대', '20대초반', '20후반', '30대초반', '30후반', '40대이상'] %>
   </div>
 
   <div class="field">

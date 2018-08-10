@@ -1,6 +1,6 @@
-class CreateUserSpecs < ActiveRecord::Migration[5.0]
+class CreateUserspecs < ActiveRecord::Migration[5.0]
   def change
-    create_table :user_specs do |t|
+    create_table :userspecs do |t|
       t.string :skintype
       t.string :age
       t.boolean :atopy

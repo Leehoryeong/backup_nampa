@@ -4,12 +4,16 @@ class ManualsController < ApplicationController
   # GET /manuals
   # GET /manuals.json
   def index
+    us= Userspec.find_by_user_id(current_user.id)
+    
+
     @manuals = Manual.all
   end
 
   # GET /manuals/1
   # GET /manuals/1.json
   def show
+    
   end
 
   # GET /manuals/new

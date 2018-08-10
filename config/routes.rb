@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_specs
+  resources :userspecs
   devise_for :users
   root 'home#index'
 

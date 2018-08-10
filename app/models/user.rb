@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :manuals
-  has_one :user_spec
+  has_one :userspec
 end
