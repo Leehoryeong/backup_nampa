@@ -30,7 +30,7 @@
         <td><%= product.category %></td>
         <td><%= product.name %></td>
         <td><%= product.brand %></td>
-        <td><%= product.contents %></td>
+        <td><%= product.contents.html_safe %></td>
         <td><%= product.skintype %></td>
         <td><%= product.age %></td>
         <td><%= product.atopy %></td>
@@ -42,6 +42,8 @@
         <td><%= product.eyeline %></td>
         <td><%= product.color %></td>
         <td><%= product.skincolor %></td>
+        <td><%= product.id %></td>
+
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

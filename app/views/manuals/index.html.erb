@@ -26,7 +26,7 @@
     <% @manuals.each do |manual| %>
       <tr>
         <td><%= manual.title %></td>
-        <td><%= manual.content %></td>
+        <td><%= manual.content.html_safe %></td>
         <td><%= manual.skintype %></td>
         <td><%= manual.age %></td>
         <td><%= manual.atopy %></td>

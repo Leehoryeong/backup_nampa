@@ -66,6 +66,8 @@ class ManualsController < ApplicationController
       manuals << Manual.find_by_id(@manualArray[i][1])
     end
     @manuals = manuals
+
+    
   end
 
   def show

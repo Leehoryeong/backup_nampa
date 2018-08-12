@@ -20,8 +20,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+      <%= f.label :내용 %>
+      <%= tinymce :language => "en" %>
+      <%= f.text_area :content, class: "form-control tinymce", rows: "10" %>
   </div>
 
   <div class="field">

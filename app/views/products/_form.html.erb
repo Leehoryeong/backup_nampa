@@ -26,9 +26,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :contents %>
-    <%= f.text_area :contents %>
+      <%= f.label :내용 %>
+      <%= tinymce :language => "en" %>
+      <%= f.text_area :contents, class: "form-control tinymce", rows: "10" %>
   </div>
+
+
+
 
   <div class="field">
     <%= f.label :skintype %>
