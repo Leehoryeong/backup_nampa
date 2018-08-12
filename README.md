@@ -1,24 +1,29 @@
-# README
+# 남자의 파우치 개발 일지
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+자신의 개발 내용과 오류 수정사항을 자신의 이름 아래 적어주시고 날짜, 시간과 함께 적어주시기 바랍니다.
 
-Things you may want to cover:
+**2018년 8월 12 까지 된 사항**
+- 메뉴얼, 제품, 유저 등의 기본 구조 모델링
+- 등록, 수정, 삭제 등의 CRUD 기본 구조 세팅
+- 사용자의 피부타입별로 우선순위 소팅
 
-* Ruby version
+##  해커톤 참여 인원
 
-* System dependencies
+- 건국대학교 방민석
+- 건국대학교 전수종
+- 건국대학교 전준혁
+- 건국대학교 이호령
+- 을지대학교 오지혜
+- 충남대학교 김정현
 
-* Configuration
+## 1) 건국대학교 방민석
 
-* Database creation
+## 2) 건국대학교 전수종
 
-* Database initialization
+## 3) 건국대학교 전준혁
 
-* How to run the test suite
+## 4) 건국대학교 이호령
 
-* Services (job queues, cache servers, search engines, etc.)
+## 5) 을지대학교 오지혜
 
-* Deployment instructions
-
-* ...
+## 6) 충남대학교 김정현
