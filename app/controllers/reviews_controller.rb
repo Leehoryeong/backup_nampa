@@ -7,6 +7,9 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.product_id = @product.id
     @review.save
+    if @review.rating == nil
+      @review.rating = 0
+    end
 
     redirect_to @product
   end

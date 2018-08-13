@@ -70,6 +70,11 @@
   <%= @manual.skincolor %>
 </p>
 
+<%= link_to like_manual_path(@manual), method: :put, class: "btn btn-default" do %>
+  <span class="glyphicon glyphicon-heart">
+    <%= @manual.get_upvotes.size %>
+  </span>
+<% end %>
 <%= link_to 'Edit', edit_manual_path(@manual) %> |
 <%= link_to 'Back', manuals_path %>
 <hr>
@@ -78,6 +83,7 @@
   <h2><%= @manual.comments.count %> Comments</h2>
   <%= render @manual.comments %>
   <hr>
+
   <h3>Add a Comment: </h3>
   <%= render "comments/form" %>
 </div>

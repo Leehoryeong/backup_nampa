@@ -1,27 +1,35 @@
 Rails.application.routes.draw do
+  root 'home#index'
 
+  # reviews
   get 'reviews/create'
-
   get 'reviews/destroy'
 
+  #user & userspec
   resources :userspecs
   devise_for :users
-  root 'home#index'
 
   # manuals
   resources :manuals do
+    member do
+      put "like", to: "manuals#upvote"
+    end
+
     resources :comments
   end
+  get 'manuals/category/:category' => "manuals#category"
 
   # custom
-  get 'custom/info'
-  get 'custom/index'
+  get 'custom/info' => "custom#info"
+  get 'custom' => "custom#index"
+  get 'custom/category/:category' => "custom#category"
 
   # ranking
   get 'ranking/index'
 
   # shopping
   get 'shopping/index'
+  get 'products/category/:category' => "products#category"
 
 
   # product
