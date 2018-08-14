@@ -1,12 +1,11 @@
 <%= render "header" %>
-
-<h1>Manuals</h1>
-
-<table>
-  <thead>
+<br>
+<h3><strong>뷰티 설명서 :<%= @manuals.count %>개</strong></h3>
+<br>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Title</th>
-      <th>Content</th>
       <th>Skintype</th>
       <th>Age</th>
       <th>Atopy</th>
@@ -26,7 +25,6 @@
     <% @manuals.each do |manual| %>
       <tr>
         <td><%= manual.title %></td>
-        <td><%= manual.content.html_safe %></td>
         <td><%= manual.skintype %></td>
         <td><%= manual.age %></td>
         <td><%= manual.atopy %></td>
@@ -48,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Manual', new_manual_path %>
+<%= link_to '새 메뉴얼 등록', new_manual_path %>

@@ -1,1 +1,16 @@
 @import "bootstrap";
+
+body { font-family: 'NanumSquare', sans-serif !important; }
+
+/* Main Nav */
+.main-nav a { font-weight: bold; color: #FFFFF3 !important}
+.main-nav a:hover { color: #d6ecfa !important; }
+.main-nav-bar { background: #011638 !important; }
+.main-logo {
+  font-weight: bold;
+  color: #FFFFF3 !important;
+} .main-logo:hover { text-decoration: none;}
+.user-bar li a { color: #FFFFF3 !important; }
+
+/* Sub Nav */
+.sub-nav li a { color: #011638; font-weight: bold; }
