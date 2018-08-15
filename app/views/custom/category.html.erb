@@ -1,3 +1,11 @@
 <%= render "header" %>
 
+<ul>
+  <% @products.each do |product| %>
+    <li>Id : <%= product.id %></li>
+    <li>제목: <%= product.name %></li>
+    <li>카테고리: <%= product.category %></li>
+    <hr>
+  <% end %>
+</ul>
 <%= @p %>

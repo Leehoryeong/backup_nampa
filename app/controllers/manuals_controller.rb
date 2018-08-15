@@ -4,71 +4,17 @@ class ManualsController < ApplicationController
 
   def index
     if current_user.userspec
-      @us= Userspec.find_by_user_id(current_user.id)#현재 유저의 userspec
-      @manuals = Manual.all#manual 전체를 받는 변수
-      manualCount = Manual.all.count # 메뉴얼이 총 몇개인지 알려주는 변수
-      @manualArray = Array.new(manualCount){Array.new(2)}#[id번호][공통갯수]2차원 배열 형성
-      @manualNumber = 0 # 몇번째 메뉴얼인지 들어갈 곳을 알려주는 인덱스
-      @insertNumber = 0 # 얼만큼 동일한 스펙을 가졌는지 들어갈 곳을 알려주는 인덱스
-
-      @manuals.each do |manual|
-        @value = 1 #실제 얼만큼 동일 스펙을 가졌는지 넣는 값
-        @manualArray[@manualNumber][1]= manual.id
-
-        if (@us.skintype != false) && (@us.skintype == manual.skintype)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.age!=false) && (@us.age == manual.age)
-          @manualArray[@insertNumber][0]  = @value
-          @value = @value +1
-        end
-        if (@us.atopy!=false) && (@us.atopy == manual.atopy)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.bb!=false) && (@us.bb == manual.bb)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.lip!=false) && (@us.lip == manual.lip)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.eyebrow!=false) && (@us.eyebrow == manual.eyebrow)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.eyeline!=false) && (@us.eyeline == manual.eyeline)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.color!=false) && (@us.color == manual.color)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@us.skincolor!=false) && (@us.skincolor == manual.skincolor)
-          @manualArray[@insertNumber][0] = @value
-          @value = @value +1
-        end
-        if (@manualArray[@insertNumber][0] == nil)
-          @manualArray[@insertNumber][0] = 0
-        end
-
-        @manualNumber += 1
-        @insertNumber += 1
-      end
-
-      @manualArray = @manualArray.sort.reverse
-      manuals = []
-      for i in 0..(@manualArray.length-1)
-        manuals << Manual.find_by_id(@manualArray[i][1])
-      end
-      @manuals = manuals
-
+      @manuals = Manual.all
+      sorting(@manuals)
     elsif
-      @manuals = Manual.all.order("created_at DESC")
+      @manuals = Manual.all.order("creat_at DESC")
     end
+  end
+
+  def category
+    @p = params[:category]
+    @manuals = Manual.where(:category => @p)
+    sorting(@manuals)
   end
 
   def show
@@ -120,17 +66,42 @@ class ManualsController < ApplicationController
     redirect_to :back
   end
 
-  def category
-    @p = params[:category]
-    @manuals = Manual.where(:category => @p)
+  def sorting(manuals)
+    @us= Userspec.find(current_user.id)
+    @manuals = manuals
+    @manualArray = Array.new(@manuals.count){Array.new(2)}
+    keys = ['skintype', 'age', 'atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline', 'color', 'skincolor']
+    arrayIndex = 0
+
+    # 매뉴얼스펙과 유저스펙 비교
+    @manuals.each do |manual|
+      @manualArray[arrayIndex][1] = manual.id
+      @manualArray[arrayIndex][0] = 0
+
+      for i in 0..10
+        if @us[keys[i]]
+          if @us[keys[i]] == manual[keys[i]]
+            @manualArray[arrayIndex][0] += 1
+          end
+        end
+      end
+      arrayIndex += 1
+    end
+
+    # @manuals 재배열
+    @manualArray = @manualArray.sort.reverse
+    @manuals = [] #초기화
+    for i in 0..(@manualArray.length-1)
+      @manuals << Manual.find(@manualArray[i][1])
+    end
   end
 
   private
-    def set_manual
-      @manual = Manual.find(params[:id])
-    end
+  def set_manual
+    @manual = Manual.find(params[:id])
+  end
 
-    def manual_params
-      params.require(:manual).permit(:category, :title, :content, :skintype, :age, :atopy, :pimple, :allergy, :bb, :lip, :eyebrow, :eyeline, :color, :skincolor)
-    end
+  def manual_params
+    params.require(:manual).permit(:category, :title, :content, :skintype, :age, :atopy, :pimple, :allergy, :bb, :lip, :eyebrow, :eyeline, :color, :skincolor)
+  end
 end

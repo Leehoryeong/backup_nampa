@@ -1,6 +1,7 @@
 <%= render 'header' %>
 <ul>
   <% @manuals.each do |manual| %>
+    <li>Id : <%= manual.id %></li>
     <li>제목: <%= manual.title %></li>
     <li>카테고리: <%= manual.category %></li>
     <hr>
