@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   after_create :assign_default_role
   def assign_default_role
-    emails = ['inamorfati@likelion.org', 'seokk1209@likelion.org', 'wjs7541@likelion.org', 'thrhdwk75@gmail.com']
+    emails = ['inamorfati@likelion.org', 'seokk1209@likelion.org', 'wjs7541@likelion.org', 'thrhdwk75@gmail.com', 'gihye0395@gmail.com']
     if emails.include? self.email
       self.add_role('admin')
     elsif
