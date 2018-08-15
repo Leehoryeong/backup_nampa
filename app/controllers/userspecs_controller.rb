@@ -19,6 +19,7 @@ class UserspecsController < ApplicationController
 
   # GET /userspecs/1/edit
   def edit
+
   end
 
   # POST /userspecs
@@ -66,7 +67,11 @@ class UserspecsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_userspec
-      @userspec = Userspec.find(params[:id])
+      if !current_user.userspec
+        redirect_to new_userspec_path
+      elsif
+        @userspec = Userspec.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
