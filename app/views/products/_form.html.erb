@@ -15,6 +15,7 @@
     <%= f.label :category %>
     <%= f.select :category, ['피부', '화장', '헤어', '바디'] %>
   </div>
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -26,13 +27,14 @@
   </div>
 
   <div class="field">
-      <%= f.label :내용 %>
-      <%= tinymce :language => "en" %>
-      <%= f.text_area :contents, class: "form-control tinymce", rows: "10" %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
-
-
+  <div class="field">
+      <%= f.label :내용 %>
+      <%= f.cktext_area :contents %>
+  </div>
 
   <div class="field">
     <%= f.label :skintype %>

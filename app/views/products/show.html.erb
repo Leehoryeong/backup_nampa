@@ -16,8 +16,13 @@
 </p>
 
 <p>
+  <strong>ThumbImage:</strong>
+  <%= image_tag @product.image.url(:thumb) %>
+</p>
+
+<p>
   <strong>Contents:</strong>
-  <%= @product.contents.html_safe %>
+  <%= raw @product.contents %>
 </p>
 
 <p>
@@ -74,16 +79,17 @@
   <strong>Skincolor:</strong>
   <%= @product.skincolor %>
 </p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<% if current_user && current_user.roles.first.name == 'admin' %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>
+<% end %>
 <hr>
 
 <div class="">
   <h2><%= @product.reviews.count %> Reviews</h2>
   <%= render @product.reviews %>
   <hr>
-  
+
   <h3>Add a Review: </h3>
   <%= render "reviews/form" %>
 </div>

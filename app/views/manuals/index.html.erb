@@ -37,8 +37,10 @@
         <td><%= manual.color %></td>
         <td><%= manual.skincolor %></td>
         <td><%= link_to 'Show', manual %></td>
-        <td><%= link_to 'Edit', edit_manual_path(manual) %></td>
-        <td><%= link_to 'Destroy', manual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.roles.first.name == 'admin' %>
+          <td><%= link_to 'Edit', edit_manual_path(manual) %></td>
+          <td><%= link_to 'Destroy', manual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

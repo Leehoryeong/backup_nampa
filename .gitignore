@@ -17,5 +17,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# paperclip images & ckeditor contents
+/public/ckeditor_assets/*
+/public/system/*
+
 # Ignore Byebug command history file.
 .byebug_history

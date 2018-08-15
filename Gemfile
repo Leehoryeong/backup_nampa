@@ -16,6 +16,7 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem 'tinymce-rails'
 gem 'rolify'
 gem 'cancancan'
+gem 'ckeditor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
