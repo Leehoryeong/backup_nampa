@@ -1,20 +1,25 @@
 class ManualsController < ApplicationController
   before_action :set_manual, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     if current_user.userspec
       @manuals = Manual.all
       sorting(@manuals)
     elsif
-      @manuals = Manual.all.order("creat_at DESC")
+      @manuals = Manual.all.order("created_at DESC")
     end
   end
 
   def category
     @p = params[:category]
     @manuals = Manual.where(:category => @p)
-    sorting(@manuals)
+    if current_user.userspec
+      sorting(@manuals)
+    elsif
+      @manuals = @manuals.order("created_at DESC")
+    end
   end
 
   def show
@@ -67,7 +72,7 @@ class ManualsController < ApplicationController
   end
 
   def sorting(manuals)
-    @us= Userspec.find(current_user.id)
+    @us= current_user.userspec
     @manuals = manuals
     @manualArray = Array.new(@manuals.count){Array.new(2)}
     keys = ['skintype', 'age', 'atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline', 'color', 'skincolor']

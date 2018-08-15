@@ -20,11 +20,15 @@ class CustomController < ApplicationController
   def category
     @p = params[:category]
     @products = Product.where(:category => @p)
-    sorting(@products)
+    if current_user.userspec
+      sorting(@products)
+    elsif
+      @products = @products.order("created_at DESC")
+    end
   end
 
   def sorting(products)
-    @us= Userspec.find(current_user.id)
+    @us = current_user.userspec
     @products = products
     @productArray = Array.new(@products.count){Array.new(2)}
     keys = ['skintype', 'age', 'atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline', 'color', 'skincolor']

@@ -43,7 +43,8 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 <%= @manualArray %>
-<%= link_to '새 메뉴얼 등록', new_manual_path %>
+<br>
+<% if current_user && current_user.roles.first.name == 'admin' %>
+  <%= link_to '새 메뉴얼 등록', new_manual_path %>
+<% end %>

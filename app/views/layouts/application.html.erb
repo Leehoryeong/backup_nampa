@@ -22,7 +22,9 @@
             <a class="nav-item nav-link active" href="/custom/info">맞춤제품</a>
             <a class="nav-item nav-link active" href="/ranking/index">랭킹</a>
             <a class="nav-item nav-link active" href="/shopping/index">쇼핑</a>
-            <a class="nav-item nav-link active" href="/products">제품등록</a>
+            <% if current_user && current_user.roles.first.name == 'admin' %>
+              <a class="nav-item nav-link active" href="/products">제품등록</a>
+            <% end %>
           </div>
         </div>
 
