@@ -1,0 +1,37 @@
+<%= render "header" %>
+
+<ul>
+  <% @products.each do |product| %>
+    <!-- reivews 평점 계산하기 -->
+    <%
+      reviews = product.reviews
+      rate_sum = 0
+      reviews.each do |review|
+        if review.rating == nil
+          review.rating = 0
+        end
+        rate_sum += review.rating
+      end
+
+      if rate_sum != 0
+        rate_avr = rate_sum.to_f / product.reviews.count
+      elsif
+        rate_avr = 0
+      end
+    %>
+    <!-- reivews 평점 계산하기 end -->
+
+    <li>Id : <%= product.id %></li>
+    <li>제목: <%= product.name %></li>
+    <li>카테고리: <%= product.category %></li>
+    <li>평점:
+      <% if rate_avr > 0 %>
+        <td><%= rate_avr.to_f.round(1) %></td>
+      <% elsif %>
+        <td><%= rate_avr %></td>
+      <% end %>
+    </li>
+    <hr>
+  <% end %>
+</ul>
+<%= @p %>

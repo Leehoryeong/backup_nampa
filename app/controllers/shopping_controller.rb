@@ -8,10 +8,10 @@ class ShoppingController < ApplicationController
       # params값이 없으면 모든 제품 받아오기
       @products = Product.all.order('created_at DESC')
     end
-
     # 제품 필터링하기 <= 받아온 params 값을 이용해서..
     get_filtered_products
   end
+
   def get_filtered_products
     @products = Product.all
     if (@data != nil) && (@products != nil)
@@ -72,4 +72,10 @@ class ShoppingController < ApplicationController
       end
     end
   end
+
+  # # 카테고리
+  # def category
+  #   @p = params[:category]
+  #   @products = Product.where(:category => @p)
+  # end
 end
