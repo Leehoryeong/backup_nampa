@@ -1,5 +1,6 @@
 class CustomController < ApplicationController
   before_action :authenticate_user!
+  before_action :rating_avr
 
   def info
     if current_user.userspec
@@ -13,7 +14,7 @@ class CustomController < ApplicationController
       @products = Product.all
       sorting(@products)
     elsif
-      @products = Product.all.order("created_at DESC")
+      review(@products = Product.all.order("created_at DESC"))
     end
   end
 
@@ -24,6 +25,28 @@ class CustomController < ApplicationController
       sorting(@products)
     elsif
       @products = @products.order("created_at DESC")
+    end
+  end
+
+  def rating_avr(product)
+    # 제품의 리뷰 배열(reviews)에 저장
+    reviews = product.reviews
+    rate_sum = 0
+
+    # 리뷰 총합 구하기
+    reviews.each do |review|
+      if review.rating == nil
+        review.rating = 0
+      else
+        rate_sum += review.rating
+      end
+    end
+
+    # 리뷰 평점 계산하기
+    if rate_sum != 0
+      @rate_avr = rate_sum.to_f / product.reviews.count
+    elsif
+      @rate_avr = 0
     end
   end
 
@@ -54,6 +77,34 @@ class CustomController < ApplicationController
     @products = []
     for i in 0..(@productArray.length-1)
       @products << Product.find(@productArray[i][1])
+    end
+  end
+
+  def rating_avr
+    @products = Product.all
+    @products.each do |product|
+      # 제품의 리뷰 배열(reviews)에 저장
+      reviews = product.reviews
+      rate_sum = 0
+
+      # 리뷰 총합 구하기
+      reviews.each do |review|
+        if review.rating == nil
+          review.rating = 0
+        else
+          rate_sum += review.rating
+        end
+      end
+
+      # 리뷰 평점 계산하기
+      if rate_sum != 0
+        @rate_avr = rate_sum.to_f / product.reviews.count
+      elsif
+        @rate_avr = 0
+      end
+
+      product.score = @rate_avr.to_f.round(1)
+      product.save
     end
   end
 end
