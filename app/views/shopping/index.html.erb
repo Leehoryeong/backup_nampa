@@ -1,2 +1,72 @@
-<h1>Shopping#index</h1>
-<p>Find me in app/views/shopping/index.html.erb</p>
+<%= render "header" %>
+<h3><strong>언제나 즐거운 쇼핑</strong></h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>id</th>
+      <th>Categroy</th>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Skintype</th>
+      <th>Age</th>
+      <th>Atopy</th>
+      <th>Pimple</th>
+      <th>Allergy</th>
+      <th>Bb</th>
+      <th>Lip</th>
+      <th>Eyebrow</th>
+      <th>Eyeline</th>
+      <th>Color</th>
+      <th>Skincolor</th>
+      <th>R</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+
+      <tr>
+        <!-- reivews 평점 계산하기 -->
+        <%
+          reviews = product.reviews
+          rate_sum = 0
+          reviews.each do |review|
+            if review.rating == nil
+              review.rating = 0
+            end
+            rate_sum += review.rating
+          end
+
+          if rate_sum != 0
+            rate_avr = rate_sum.to_f / product.reviews.count
+          elsif
+            rate_avr = 0
+          end
+        %>
+        <!-- reivews 평점 계산하기 end -->
+        <td><%= product.id %></td>
+        <td><%= product.category %></td>
+        <td><%= product.name %></td>
+        <td><%= product.brand %></td>
+        <td><%= product.skintype %></td>
+        <td><%= product.age %></td>
+        <td><%= product.atopy %></td>
+        <td><%= product.pimple %></td>
+        <td><%= product.allergy %></td>
+        <td><%= product.bb %></td>
+        <td><%= product.lip %></td>
+        <td><%= product.eyebrow %></td>
+        <td><%= product.eyeline %></td>
+        <td><%= product.color %></td>
+        <td><%= product.skincolor %></td>
+        <% if rate_avr > 0 %>
+          <td><%= rate_avr.to_f.round(1) %></td>
+        <% elsif %>
+          <td><%= rate_avr %></td>
+        <% end %>
+        <td><%= link_to 'Show', product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

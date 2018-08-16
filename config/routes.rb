@@ -27,10 +27,11 @@ Rails.application.routes.draw do
 
   # ranking
   get 'ranking/index'
+  get 'ranking/category/:category' => "ranking#category"
 
   # shopping
   get 'shopping/index'
-  get 'products/category/:category' => "products#category"
+  get 'shopping/category/:category' => "shopping#category"
 
 
   # product
