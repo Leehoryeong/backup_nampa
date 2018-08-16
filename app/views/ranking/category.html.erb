@@ -4,24 +4,6 @@
   <div style="margin-top:5%">
     <ul>
       <% @products.each do |product| %>
-        <!-- reivews 평점 계산하기 -->
-        <%
-          reviews = product.reviews
-          rate_sum = 0
-          reviews.each do |review|
-            if review.rating == nil
-              review.rating = 0
-            end
-            rate_sum += review.rating
-          end
-
-          if rate_sum != 0
-            rate_avr = rate_sum.to_f / product.reviews.count
-          elsif
-            rate_avr = 0
-          end
-        %>
-        <!-- reivews 평점 계산하기 end -->
           <div class="row">
               <div class="col">
                 <h1 style="text-align:center"><%= @ranking %></h1>
@@ -36,7 +18,7 @@
                 <p>가격 : <%= product.price %></p>
               </div>
               <div class="col">
-                <p>평점 : <%= rate_avr %></p>
+                <p>평점 : <%= product.score %></p>
                 <br>
                 <%= link_to '제품보기', product %>
               </div>
