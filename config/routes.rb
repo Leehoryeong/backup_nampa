@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   get 'custom/category/:category' => "custom#category"
 
   # ranking
-  get 'ranking/index'
+  get 'ranking/index' => 'ranking#index'
 
   # shopping
-  get 'shopping/index'
+  get 'shopping/index' => 'shopping#index'
   get 'products/category/:category' => "products#category"
 
 
