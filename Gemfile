@@ -7,16 +7,15 @@ end
 
 # Installed Gems
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
-gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'simple_form'
 gem 'rails_db'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'paperclip', '~> 6.1'
-gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.11.1'
-gem 'tinymce-rails'
 gem 'rolify'
 gem 'cancancan'
 gem 'ckeditor'
+gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
