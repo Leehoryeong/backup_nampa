@@ -3,7 +3,9 @@
   <% list = ["피부", "화장", "헤어", "바디"] %>
   <% contentsCount = [0,0,0,0] %>
     <% (0..3).each do |i| %>
-      <%= list[i] %>
+    <div class="alert alert-primary" role="alert">
+      <p> 당신의 <%= list[i] %> 정보에 알맞은 제품을 추천드려요 </p> 
+    </div>
       <div class="d-flex justify-content-center" >
         <% @products.each do |product| %>
           <%if contentsCount[i] <=5 %>
@@ -23,9 +25,4 @@
       
       <% contentsCount = [0,0,0,0] %>
     <% end %>
-    
-    
-    
-    
-
-<%= @productArray %>
+  
