@@ -2,17 +2,19 @@ class RankingController < ApplicationController
   def index
       @products = Product.all.order("created_at DESC")
       sorting(@products)
+      @ranking = 1
   end
 
   def category
     @p = params[:category]
     @products = Product.where(:category => @p)
     sorting(@products)
+    @ranking = 1
   end
 
 #별점을 기준으로 소팅
   def sorting(products)
-    @porducts = products
+    @products = products
     @productArray = Array.new(@products.count){Array.new(2)}
     index = 0
 
