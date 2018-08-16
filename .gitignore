@@ -14,10 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/lib/tasks/*
 !/log/.keep
 !/tmp/.keep
-!/lib/tasks/.keep
 
 # paperclip images & ckeditor contents
 /public/ckeditor_assets/*
@@ -25,3 +23,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# sample images
+/sampleimages/*
