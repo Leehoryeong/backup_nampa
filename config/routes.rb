@@ -31,8 +31,6 @@ Rails.application.routes.draw do
 
   # shopping
   get 'shopping/index' => 'shopping#index'
-  # get 'shopping/category/:category' => "shopping#cetegory"
-
 
   # product
   get 'products/category/:category' => "products#category"

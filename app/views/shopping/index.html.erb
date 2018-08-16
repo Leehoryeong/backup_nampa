@@ -1,19 +1,12 @@
-<h3><strong>쇼핑하기</strong></h3>
-<div class="shop_wrap d-flex justify-content-center">
-  <div class="shop_filter">
-    <%= render 'form' %>
-  </div>
-
-  <div class="shop_result">
-    <%= @data %> <br>
-    <%= @products_data %> <br>
-    <%= @products.length %>
-    <hr>
-
-    <% @products.each do |product| %>
-      <p><%= link_to product.name, product_path(product) %></p>
-      <%= link_to (image_tag product.image.url(:thumb)), product %>
-      <hr>
-    <% end %>
+<h3>쇼핑하기</h3>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    정렬하기
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="shopping/<%= 'price' %>">가격순</a>
+    <a class="dropdown-item" href="shopping/<%= 'create' %>">최신순</a>
+    <a class="dropdown-item" href="shopping/<%= 'review' %>">만족도</a>
+    <a class="dropdown-item" href="#">만족도</a>
   </div>
 </div>
