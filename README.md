@@ -42,3 +42,33 @@
 - Front: 메인 메뉴 views 틀잡기
 
 **8월 17일 진행사항**
+
+### 오류내용
+##### 8월12일 tinymce와 imageupload 연동하기 
+paperclip gem을 사용하려 했으나, tinymce 플러그인 안에서 여러장의 사진을 첨부하는데 있어서 paperclip모델과의 연동이 어려움. 구글링에 노출되는 참고 자료가 부족하여 다른 방법을 고안중.
+
+##### rake 파일에서 더미데이터 넣기 
+Products 데이터를 활용해 쇼핑 카테고리 기능 테스트를 위해 Faker젬을 사용하였다. 여기서 Faker::Avatar 가 서버문제로 작동하지 않았다. 그래서 구글링 진행
+
+- 해결방법: File.open(Dir.glob(File.join(Rails.root, 'directory', '*')).sample) 활용
+```
+Product.create({
+	:image => File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample)
+})
+```
+
+### 사용한 Gem
+gem 'bootstrap', '> 4.1', '>= 4.1.3' 
+gem 'simple_form', '> 4.0', '>= 4.0.1' 
+gem 'rails_db' 
+gem 'devise', '> 4.4', '>= 4.4.3' 
+gem 'paperclip', '> 6.1' 
+gem 'acts_as_votable', '~> 0.11.1' 
+gem 'faker' 
+gem 'rolify' 
+gem 'cancancan'
+
+### 참고 문서
+https://stackoverflow.com/questions/5792442/generating-paperclip-image-uploads-with-fake-data-ruby-on-rails-populator-fa https://rubygems.org/gems/rails/versions/4.2.6
+
+### 완성본 스크린샷
