@@ -17,5 +17,3 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
-//= require tinymce
-//= require tinymce-jquery
