@@ -4,11 +4,7 @@
 # 명령어는 각 task 주석에서 볼 수 있습니다.
 # 명령어를 터미널창에 순서대로 입력해주세요.
 
-<<<<<<< HEAD
-# "1" Add Users: 명령어 => rake add_users
-=======
 # "1" Add Users: add_users => rake add_users
->>>>>>> 76148b99379193f21206dbc3fd8c7f30781237da
 phone = ['010-2323-2323', '010-7323-1113', '010-9003-2323', '010-1723-2543', '010-1003-4823', '010-2236-4829']
 task :add_users => [:environment] do
   (1..10).each do
