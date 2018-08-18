@@ -1,98 +1,67 @@
-<p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<p>
-  <strong>Category:</strong>
-  <%= @manual.category %>
-</p>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<p>
-  <strong>Title:</strong>
-  <%= @manual.title %>
-</p>
+    <title>Nampa2</title>
+  </head>
+  <body>
+    <div align="center">
+      <div style="width:400px; height:600px;">
+        <p  id="notice"><%= notice %></p>
+        <h1 style="margin-left:-65%; font-size:20pt;"><strong><%= @manual.title %></strong>
+          <span class="badge badge-primary" style="font-size: 13pt; position: absolute; top:4%; right: 15%; background-color:dimgray; width:autopx; height:25px;">
+            <%= @manual.category %>
+          </span>
+        </h1>
+        <p>
+          <%= image_tag @manual.image.url(:thumb) %>
+        </p>
+        <p ></p>
+        <p align="right" style=" margin-top:3%; margin-right:11%; "><%= time_ago_in_words(@manual.created_at) %> Ago &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <img style="height:25px;" src="https://pbs.twimg.com/profile_images/975321969649336320/VuUg1XZy.jpg"><%= @manual.comments.count %>
+          <%= link_to like_manual_path(@manual), method: :put, class: "btn btn-default" do %>
+            &nbsp <img style="height:25px; margin-right:-10px; margin-left:-10px;" src="https://www.publicdomainpictures.net/pictures/40000/velka/red-heart-1362916005N5Z.jpg">
+          <% end %>
+          <%= @manual.get_upvotes.size %>
+        </p>
+        <p style="word-wrap: break-word; margin-left:12%; margin-right:12%" align="left">texttexttexttexttexttexttexttetexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+        <br><br>
+        <p align="left" style="margin-left:12%;">#해시태그 #해시태그</p>
+        <hr style="width:300px;">
+        <p align="right" style="margin-right:12%;"> 
+          <%# if current_user && current_user.roles.first.name == 'admin' %>
+            <%#= link_to 'Edit', edit_manual_path(@manual) %> 
+          <%# end %>
+          <%#= link_to 'Back', manuals_path %>
+        </p>
+        
+        <div class="" >
+          <p align = "left" style="margin-left:13%; margin-top:-2%; word-wrap: break-word; font-size:10pt;">
+          <% @manual.comments. each do |c| %>
+            <% k = @users.find(c.user_id) %>
+            <strong><%= k.nickname %></strong> &nbsp | &nbsp
+            <%= c.body %>
+            <br>
+            <%# if current_user == @users.find(c.user_id) %>
+              <%#= link_to 'Delete', [c.manual, c],method: :delete, data: { confirm: 'Are you sure?' }, style:"text-align: right;" %>
+            <%# end %>      
+          <% end %>
+          </p>
+          <%= render "comments/form" %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>ThumbImage:</strong>
-  <%= image_tag @manual.image.url(:thumb) %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= raw @manual.content %>
-</p>
-
-<p>
-  <strong>Skintype:</strong>
-  <%= @manual.skintype %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @manual.age %>
-</p>
-
-<p>
-  <strong>Atopy:</strong>
-  <%= @manual.atopy %>
-</p>
-
-<p>
-  <strong>Pimple:</strong>
-  <%= @manual.pimple %>
-</p>
-
-<p>
-  <strong>Allergy:</strong>
-  <%= @manual.allergy %>
-</p>
-
-<p>
-  <strong>Bb:</strong>
-  <%= @manual.bb %>
-</p>
-
-<p>
-  <strong>Lip:</strong>
-  <%= @manual.lip %>
-</p>
-
-<p>
-  <strong>Eyebrow:</strong>
-  <%= @manual.eyebrow %>
-</p>
-
-<p>
-  <strong>Eyeline:</strong>
-  <%= @manual.eyeline %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @manual.color %>
-</p>
-
-<p>
-  <strong>Skincolor:</strong>
-  <%= @manual.skincolor %>
-</p>
-
-<%= link_to like_manual_path(@manual), method: :put, class: "btn btn-default" do %>
-  <span class="glyphicon glyphicon-heart">
-    Like <%= @manual.get_upvotes.size %>
-  </span>
-<% end %>
-<br>
-
-<% if current_user && current_user.roles.first.name == 'admin' %>
-  <%= link_to 'Edit', edit_manual_path(@manual) %> |
-<% end %>
-<%= link_to 'Back', manuals_path %>
-<hr>
-
-<div class="">
-  <h2><%= @manual.comments.count %> Comments</h2>
-  <%= render @manual.comments %>
-  <hr>
-
-  <h3>Add a Comment: </h3>
-  <%= render "comments/form" %>
-</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,3 +1,25 @@
+<h3 style="margin-top:5%;" align="center"><strong>SHOPPING</strong></h3>
+<ul class="nav justify-content-center" style="margin-top:2%;">
+  <li class="nav-item">
+    <a style="font-size:20pt; font-weight: bold; color: #164059;"onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'" class="nav-link active" href="<%= shopping_index_path %>">All</a>
+  </lonMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'"i>
+  <li class="nav-item">
+    <a style="font-size:20pt; color: #164059; font-weight: bold;"onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'" class="nav-link active" href="/manuals/category/<%= '피부'  %>">피부</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size:20pt; color: #164059; font-weight: bold;"onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'" class="nav-link" href="/manuals/category/<%= '화장' %>">화장</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size:20pt; color: #164059; font-weight: bold;"onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'" class="nav-link" href="/manuals/category/<%= '헤어' %>">헤어</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size:20pt; color: #164059; font-weight: bold;"onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'" class="nav-link" href="/manuals/category/<%= '바디' %>">바디</a>
+  </li>
+</ul>
+
+<hr style = "margin-top: -0.1%; width:34%; border-width: 4px; background-color: #164059;">
+
+
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     정렬하기
@@ -10,10 +32,28 @@
   </div>
 </div>
 <hr>
-<% @products.each do |product| %>
-  <p>Name: <%= product.name %></p>
-  <p>Price: <%= product.price %></p>
-  <p>Create: <%= product.created_at %></p>
-  <p>Score: <%= product.score %></p>
-  <hr>
-<% end %>
+<!--<%# @products.each do |product| %>-->
+<!--  <p>Name: <%#= product.name %></p>-->
+<!--  <p>Price: <%#= product.price %></p>-->
+<!--  <p>Create: <%#= product.created_at %></p>-->
+<!--  <p>Score: <%#= product.score %></p>-->
+<!--  <hr>-->
+<!--<%# end %>-->
+<div class="row justify-content-center" style="margin-top: 50px;" size="240 x 450;">
+    <% @products.each do |product| %>
+    	<div class="card md-3" style="margin: 5px 5px;">
+			<div class="card-body" style="margin: -18px -15px 5px ;">
+			   <h3 class="card-title" style="font-size:15pt"></>
+                    <%= product.name %><br>
+                    <% k = product.score.floor()  %>
+                    
+                    <p style="font-size: 10pt;"><%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%> </p>
+			   </h3>
+			</div>
+		  	<div class="card-body" style="margin-left:-20px; margin-right:-20px; margin-top:-50px; margin-bottom:-40px;">
+			    <%= image_tag product.image.url(:thumb ), size: "240x180" %>
+                <p align="right"style="color:white; background-color:#071826; width:240px;">\<%= product.price %>&nbsp&nbsp</p>
+			</div>
+		</div>
+    <% end %>
+</div>
