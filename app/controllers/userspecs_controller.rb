@@ -1,5 +1,5 @@
 class UserspecsController < ApplicationController
-  before_action :set_userspec, only: [:show, :edit, :update, :destroy]
+  before_action :set_userspec, only: [:show, :update, :destroy]
 
   # GET /userspecs
   # GET /userspecs.json
@@ -7,25 +7,24 @@ class UserspecsController < ApplicationController
     @userspecs = Userspec.all
   end
 
-  # GET /userspecs/1
-  # GET /userspecs/1.json
   def show
   end
 
-  # GET /userspecs/new
   def new
     @userspec = Userspec.new
   end
 
   # GET /userspecs/1/edit
   def edit
-
+    if !current_user.userspec
+      redirect_to new_userspec_path
+    end
+    @userspec = Userspec.find_by_user_id(current_user.id)
   end
 
   # POST /userspecs
   # POST /userspecs.json
   def create
-
     @userspec = Userspec.new(userspec_params)
     @userspec.user_id = current_user.id
 
@@ -67,11 +66,7 @@ class UserspecsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_userspec
-      if !current_user.userspec
-        redirect_to new_userspec_path
-      elsif
-        @userspec = Userspec.find(params[:id])
-      end
+      @userspec = Userspec.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
