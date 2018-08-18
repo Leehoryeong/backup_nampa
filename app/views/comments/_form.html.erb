@@ -1,9 +1,7 @@
-<%= form_for([@manual, @manual.comments.build]) do |f| %>
+<%= form_for([@manual, @manual.comments.build], class:"form-inline my-2 my-lg-0") do |f| %>
   <p>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-  </p>
-  <p>
-    <%= f.submit %>
+    <%#= f.label :"댓글작성" %>
+    <%= f.text_field :body, class:"form-control mr-sm-2",style:"width:80%;" %>
+    <%= f.submit :"작성", class:"btn btn-outline-success my-2 my-sm-0", style:"height:33px;" %>
   </p>
 <% end %>
