@@ -1,26 +1,37 @@
 <%= render "header" %>
-<h3><strong>제품별 랭킹</strong></h3>
-
+<!--<h3><strong>제품별 랭킹</strong></h3>-->
+<style>
+.row.no-gutter {
+  margin-left: 200px;
+  margin-right: 300px;
+}
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+</style>
   <div style="margin-top:5%">
     <ul>
       <% @products.each do |product| %>
-          <div class="row">
-              <div class="col">
-                <h1 style="text-align:center"><%= @ranking %></h1>
+          <div class="row no-gutter">
+              <div class="col padding-0">
+                <h1 style="text-align:center; margin-top:10%"><%= @ranking %></h1>
               </div>
               <div class="col">
-                 <%= image_tag product.image.url(:thumb) %>
+                 <%= image_tag product.image.url(:thumb), size:"100x100" %>
+              </div>
+              <div class="col-lg- ">
+                <p style="font-size:15pt;"><%= product.name%></p>
+                <% k = product.score.floor()  %> 
+                <p style="font-size:10pt;">150mm <%= product.price %>원 <br>
+                <%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%> (<%= product.reviews.count %>)  
+                </p>
               </div>
               <div class="col">
-                <%= product.name%>
                 <br>
-                <br>
-                <p>가격 : <%= product.price %></p>
-              </div>
-              <div class="col">
-                <p>평점 : <%= product.score %></p>
-                <br>
-                <%= link_to '제품보기', product %>
+                <span class="category-clip badge badge-primary">
+                  <%= link_to '상세보기', product, style:"color: inherit;" %>
+                </span>
               </div>
             </div>
           <hr> 
