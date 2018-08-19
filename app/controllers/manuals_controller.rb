@@ -2,7 +2,7 @@ class ManualsController < ApplicationController
   before_action :set_manual, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!
   load_and_authorize_resource
-  
+
 
   def index
     if current_user.userspec
@@ -26,7 +26,7 @@ class ManualsController < ApplicationController
 
   def show
     @users = User.all
-    render :layout => false
+
   end
 
   def new

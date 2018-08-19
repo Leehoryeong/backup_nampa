@@ -31,13 +31,12 @@ Rails.application.routes.draw do
 
   # shopping
   get 'shopping/index' => 'shopping#index'
-  get 'shopping/:category' => 'shopping#category'
+  get 'shopping/:order' => 'shopping#order'
+  get 'shopping/category/:category' => 'shopping#category'
 
   # product
   get 'products/category/:category' => "products#category"
   resources :products do
     resources :reviews
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

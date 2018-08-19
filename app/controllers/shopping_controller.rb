@@ -1,25 +1,56 @@
 class ShoppingController < ApplicationController
   before_action :rating_avr
+  @@order_param = ""
+  @@category_param = ""
 
   def index
+    @@order_param = ""
+    @@category_param = ""
+
     @products = Product.all.order('created_at DESC')
   end
 
-  def category
-    @p = params[:category]
+  def order
+    @@order_param = params[:order]
 
-    case @p
+    if @@category_param != ""
+      @products = Product.where(:category => @@category_param)
+    else
+      @products = Product.all
+    end
+
+    case @@order_param
     when 'price'
-      price
+      price(@products)
     when 'created'
-      @products = Product.all.order('created_at DESC')
+      @products = @products.all.order('created_at DESC')
     else 'review'
-      review(Product.all)
+      review(@products)
     end
   end
 
-  def price
-    @products = Product.all
+  def category
+    @@category_param = params[:category]
+
+    if @@order_param != ""
+      case @@order_param
+      when 'price'
+        @products = Product.where(:category => @@category_param)
+        price(@products)
+      when 'created'
+        @products = Product.where(:category => @@category_param).order('created_at DESC')
+        # @products = @products.order('created_at DESC')
+      else 'review'
+        @products = Product.where(:category => @@category_param)
+        review(@products)
+      end
+    else
+      @products = Product.where(:category => @@category_param)
+    end
+  end
+
+  def price(products)
+    @products = products
     @productArray = Array.new(@products.count){Array.new(2)}
     index = 0
 
@@ -34,6 +65,8 @@ class ShoppingController < ApplicationController
     for i in 0..(@productArray.length-1)
       @products << Product.find_by_id(@productArray[i][1])
     end
+
+    return @products
   end
 
   def review(products)
@@ -53,6 +86,8 @@ class ShoppingController < ApplicationController
       product = Product.find_by_id(@productArray[i][1])
       @products << product
     end
+
+    return @products
   end
 
   def rating_avr

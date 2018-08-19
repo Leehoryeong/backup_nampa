@@ -1,29 +1,48 @@
 <%= render "header" %>
 
-<!--<a href="javascript:void(0);" onclick="window.open('/manuals/:id', '_blank', 'width=300,height=250');">test</a>-->
+<div class="row d-flex justify-content-center" style="margin-top: 50px;">
+  <% @manuals.each do |manual| %>
+    <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+    	<div class="card">
+        <div class="card-header d-flex justify-content-center">
+          <div class="card-header-title">
+            <h4>
+              <% if manual.title.length > 8 %>
+                <%= link_to (manual.title[0,8] + " .."), manual_path(manual), class: "manual-card-title" %>
+              <% else %>
+                <%= link_to manual.title, manual_path(manual), class: "manual-card-title" %>
+              <% end %>
+    		    </h4>
+          </div>
+          <div class="card-header-category">
+            <span class="category-clip badge badge-primary">
+              <%= manual.category %>
+            </span>
+          </div>
+        </div>
 
+        <div class="card-body manual-card-body">
+          <%= link_to image_tag(manual.image.url(:thumb)), manual_path(manual) %>
+        </div>
 
-<div class="row justify-content-center" style="margin-top: 50px;">
-    <% @manuals.each do |manual| %>
-        	<div class="card md-3" style="margin: 10px 10px;">
-    			<div class="card-body">
-    			   <h3 class="card-title"></>
-    			       <a href="/manuals/<%= manual.id %>" style="color:#164059;" onMouseOver="this.style.color='peachpuff'" onMouseOut="this.style.color='#071826'"  target="popup"  onclick="window.open('/manuals/<%= manual.id %>','popup','width=420px,height=600px,scrollbars=no,resizable=no'); return false;">
-                        <%= manual.title %>
-    			       <span class="badge badge-primary" style="font-size: 10pt; position: absolute; right: 25%; top:8%; background-color:dimgray; width:autopx; height:20px; margin-right:-10%;">
-    			           <%= manual.category %>
-    			       </span> 
-    			   </h3>
-    			</div>
-    		  	<div class="card-body">
-    			    <h3 class="card-title" style="margin-top:-20%;"><%= image_tag manual.image.url(:thumb ), size: "200x150" %></h3></a>
-                        </a>
-    			</div>
-                <p align="right" style="margin-right:20px; margin-top:-10%;"> <%= time_ago_in_words(manual.created_at) %> Ago <img style="height:25px;" src="https://pbs.twimg.com/profile_images/975321969649336320/VuUg1XZy.jpg"></img><%= manual.comments.count %>&nbsp <img style="height:25px;" src="https://www.publicdomainpictures.net/pictures/40000/velka/red-heart-1362916005N5Z.jpg"></img><%= @m.find(manual.id).get_upvotes.size %></p>
-    		    <p style="margin-left:10%">#해시태그 #해시태그</p>
-    		</div>
+        <div class="card-bottom d-flex justify-content-center">
+          <div class="card-bottom-left">
+            <%= time_ago_in_words(manual.created_at) %> 전
+          </div>
+          <div class="card-bottom-right">
+            <img style="height:25px;" src="https://pbs.twimg.com/profile_images/975321969649336320/VuUg1XZy.jpg"></img>
+            <%= manual.comments.count %>&nbsp
 
-    <% end %>
+            <%= link_to like_manual_path(manual), method: :put, class: "manual-like" do %>
+              <img style="height:25px;" src="https://www.publicdomainpictures.net/pictures/40000/velka/red-heart-1362916005N5Z.jpg"></img>
+              <%= manual.get_upvotes.size %>
+            <% end %>
+          </div>
+        </div>
+
+    	</div>
+    </div>
+  <% end %>
 </div>
 
 
@@ -31,6 +50,3 @@
 <% if current_user && current_user.roles.first.name == 'admin' %>
   <%= link_to '새 메뉴얼 등록', new_manual_path %>
 <% end %>
-
-
-

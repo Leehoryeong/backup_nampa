@@ -1,8 +1,8 @@
 @import "bootstrap";
-
 body { font-family: 'NanumSquare', sans-serif !important; }
 
-/* Main Nav */
+
+/* Nav */
 .main-nav a { font-weight: bold; color: #FFFFF3 !important}
 .main-nav a:hover { color: #d6ecfa !important; }
 .main-nav-bar { background: #011638 !important; }
@@ -11,13 +11,112 @@ body { font-family: 'NanumSquare', sans-serif !important; }
   color: #FFFFF3 !important;
 } .main-logo:hover { text-decoration: none;}
 .user-bar li a { color: #FFFFF3 !important; }
-
-/* Sub Nav */
 .sub-nav li a { color: #011638; font-weight: bold; }
+
+/* cetegory nav */
+.categories {
+  font-size:20pt;
+  font-weight: bold;
+  color: #164059;
+  border-bottom: 5px solid #164059;
+  // #071826
+} .categories:hover { text-decoration: none; color: #164059; border-bottom: 5px solid peachpuff; }
+.category-clip {
+  font-size: 12px;
+  background-color:dimgray;
+  width:auto;
+  padding: 5px 10px;
+}
+
+/* manuals index */
+.card-header { background: #fff !important; border-bottom: none !important; }
+.manual-card-body { padding: 0!important; }
+.card { margin-bottom: 20px; }
+.manual-card-title { color: #555; }
+.manual-card-title:hover { text-decoration: none; color: #777; }
+.manual-card-body img { width: 100%; }
+.manual-like { color: black; }
+.manual-like:hover { text-decoration: none; opacity: 0.5; }
+.card-header-title { width: 80%; }
+.card-header-category { width: 20%; }
+.card-bottom { width: 100%; margin: 20px 0;}
+.card-bottom-left { width: 60%; margin-left: 20px; }
+.card-bottom-right { width: 40%; text-align: right; margin-right: 20px; }
+
+/* Shopping index(article.html.erb)*/
+/* 대부분 manual-card 코드를 이용했음 */
+.shop-card-header { width: 100%; padding-bottom: 0 !important; }
+.shop-card-body img { width: 100%; }
+.shop-card-body { padding: 0 15px !important; }
+.shop-card-bottom { padding: 0 20px !important; }
+.shop-bottom-line-wrap {
+  width: 100%;
+  background: #071826;
+}
+.shop-bottom-line {
+  display: block;
+  color: white;
+  font-size: 14px;
+  width: 50%;
+}
+.product-review {
+  padding: 5px 0 0 10px;
+}
+.product-price {
+  text-align: right;
+  padding: 5px 10px 5px 0;
+}
+
+/* show */
+.show-wrap {
+  width: 70%;
+  border: 1px solid #efefef;
+  background: #fff;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+.show-header {
+  border-bottom: 1px solid #efefef;
+  padding: 15px 10px;
+}
+.show-title { font-size: 1.6em; color: #555; }
+.show-body { padding: 20px; }
+.show-body img { width: 100%; }
+.show-footer { width: 100%; border-bottom: 1px solid #efefef; }
+.show-footer-left { width: 50%; padding: 20px; }
+.show-footer-right { width: 50%; padding: 20px; }
+.show-footer-right>p { text-align: right; }
+.show-comments { padding: 20px; }
 
 /* ranking/index */
 .shop_wrap { width: 100%; }
 .shop_filter { width: 30%; }
 .shop_result { width: 70%; }
 
-/* Shopping */
+
+/* category _header*/
+
+/* comments */
+.comments-line { width: 100%; margin-bottom: 10px; }
+.comments-line-left { width: 76%; }
+.comments-line-middle {
+  width: 20%;
+  text-align:
+  right; color: #777;
+  font-size: 12px;
+}
+.comments-contents { font-size: 12px; color: #777; }
+.comments-line-right { width: 4%; }
+.delete-comment {
+  background: #efefef;
+  color: #afafaf;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 15px;
+  font-size: 10px;
+  padding-bottom: 4px;
+} .delete-comment:hover { text-decoration: none; background: #afafaf; color: #efefef; }
+.comments-area { margin-top: 20px !important; }

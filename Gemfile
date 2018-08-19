@@ -16,6 +16,8 @@ gem 'rolify'
 gem 'cancancan'
 gem 'ckeditor'
 gem 'faker'
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
