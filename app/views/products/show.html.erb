@@ -1,100 +1,93 @@
-<p id="notice"><%= notice %></p>
+<div class="show-wrap">
+  <div class="show-header">
+    <span class="show-title"><%= @product.name %></span> <br>
+   
 
-<p>
-  <strong>Categroy:</strong>
-  <%= @product.category %>
-</p>
+    <span class="badge badge-pill badge-secondary"  style="height:20px;">
+      <%= @product.category %>
+    </span>
+    <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
+      <%= @product.skintype %>
+    </span>    
+    <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
+      <%= @product.age %>
+    </span>
+     <!-- True인 값의 제목을 가져오는 함수 -->
+    <% product_menu = [@product.atopy, @product.pimple, @product.allergy, @product.bb, @product.lip, @product.eyebrow, @product.eyeline] %>
+    <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %> 
+    <% key = 0 %>
+    <% product_menu.each do |menu| %>
+      <% if menu == true %>
+        <span class="badge badge-pill badge-info" style="height:20px; margin-left:5px;">
+        <p> <%= box[key] %> </p>
+        </span>
+        <% key = key + 1 %>
+      <% end %>
+    <% end %>    
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <div class="show-body" style="width:300px;">
+    <%#= image_tag @product.image.url(:medium) %>
+    <br>
+    <%= @product.contents.html_safe %>
+  </div>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
+  <div class="show-footer d-flex justify-content-center">
+    <div class="show-footer-left">
+      <p><%= time_ago_in_words(@product.created_at) %> 전</p>
+    </div>
+    <div class="show-footer-right">
+      <p>
+      <img style="height:25px;"
+           src="https://pbs.twimg.com/profile_images/975321969649336320/VuUg1XZy.jpg" />
+      <%= @product.reviews.count %>&nbsp
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+      <%= link_to like_manual_path(@product), method: :put, class: "manual-like" do %>
+        <img style="height:25px;" src="https://www.publicdomainpictures.net/pictures/40000/velka/red-heart-1362916005N5Z.jpg">
+        <%#= @product.get_upvotes.size %>
+      <% end %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>ThumbImage:</strong>
-  <%= image_tag @product.image.url(:thumb) %>
-</p>
+  <div class="show-comments" >
+    <% @product.reviews.each do |r| %>
+      <div class="comments-line d-flex justify-content-center">
+        <div class="comments-line-left">
+        <strong><%= r.user.nickname %></strong>&nbsp
+        <!--별선택 했을 때와 안했을 때 댓글 폼의 차이를 주는 함수-->
+        <% n = r.rating %>
+        <% if r.rating == nil then %>
+          <span class="comments-contents"><%= r.review %></span>
+        <% else %>
+          <span class="comments-contents"><%= '★'*n %>&nbsp&nbsp|&nbsp&nbsp<%= r.review%></span>
+        <% end %>
+        </div>
+        <div class="comments-line-middle">
+          <%= time_ago_in_words(r.created_at) %> 전
+        </div>
+        <div class="comments-line-right d-flex justify-content-center">
+          
+          <a class="delete-comment" href="<%= product_review_path(@product, r) %>" data-method="delete" data-confirm="정말로 삭제하시겠습니까?">x</a>
+        </div>
+      </div>
+    <% end %>
+    <%= render "/reviews/form" %>
+  </div>
 
-<p>
-  <strong>Contents:</strong>
-  <%= raw @product.contents %>
-</p>
 
-<p>
-  <strong>Skintype:</strong>
-  <%= @product.skintype %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @product.age %>
-</p>
-
-<p>
-  <strong>Atopy:</strong>
-  <%= @product.atopy %>
-</p>
-
-<p>
-  <strong>Pimple:</strong>
-  <%= @product.pimple %>
-</p>
-
-<p>
-  <strong>Allergy:</strong>
-  <%= @product.allergy %>
-</p>
-
-<p>
-  <strong>Bb:</strong>
-  <%= @product.bb %>
-</p>
-
-<p>
-  <strong>Lip:</strong>
-  <%= @product.lip %>
-</p>
-
-<p>
-  <strong>Eyebrow:</strong>
-  <%= @product.eyebrow %>
-</p>
-
-<p>
-  <strong>Eyeline:</strong>
-  <%= @product.eyeline %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
-
-<p>
-  <strong>Skincolor:</strong>
-  <%= @product.skincolor %>
-</p>
-<% if current_user && current_user.roles.first.name == 'admin' %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
-<% end %>
-<hr>
-
-<div class="">
-  <h2><%= @product.reviews.count %> Reviews</h2>
-  <%= render @product.reviews %>
-  <hr>
-
-  <h3>Add a Review: </h3>
-  <%= render "reviews/form" %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
