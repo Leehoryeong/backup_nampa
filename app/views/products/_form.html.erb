@@ -10,95 +10,101 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.select :category, ['피부', '화장', '헤어', '바디'] %>
+  <div class="d-flex justify-content-start">
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.select(:category, ['피부', '화장', '헤어', '바디'] , {}, { :class => 'form-control input-select'})  %>
+    </div>
+    <div class="field" style="margin-left:20px;">
+      <%= f.label :brand %>
+      <%= f.text_field(:brand, class: 'form-control input-text', style:"width:200px;") %>
+    </div>
+  
+    <div class="field" style="margin-left:20px;">
+      <%= f.label :price  %>
+      <%= f.number_field(:price, class: 'form-control input-text', style:"width:200px;") %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="d-flex justify-content-start">  
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field(:name , class: 'form-control input-text', style:"width:550px;")%>
+    </div>
+  
+  
+    <br>
+    <div class="field" style="margin-left:30px;">
+      <p style="margin-top:0">썸네일 이미지 </p>
+      <p style="margin-top:15px;"><%= f.file_field :image %></p>
+    </div>
   </div>
-
   <div class="field">
-    <%= f.label :brand %>
-    <%= f.text_field :brand %>
-  </div>
-
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-      <%= f.label :내용 %>
+      <%#= f.label :내용 %>
       <%= f.cktext_area :contents %>
   </div>
-
-  <div class="field">
-    <%= f.label :skintype %>
-    <%= f.select :skintype, ['건성', '지성', '복합성', '중성', '민감성'] %>
+  <div class="d-flex justify-content-start">
+    <div class="field">
+      <%= f.label :skintype %>
+      <%= f.select( :skintype, ['건성', '지성', '복합성', '중성', '민감성'], {}, { :class => 'form-control input-select'}) %>
+    </div>
+  
+    <div class="field" style="margin-left:30px;">
+      <%= f.label :age %>
+      <%= f.select( :age, ['10대', '20대초반', '20대후반', '30대초반', '30대후반', '40대이상'],  {}, { :class => 'form-control input-select'}) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :age %>
-    <%= f.select :age, ['10대', '20대초반', '20대후반', '30대초반', '30대후반', '40대이상'] %>
+  <div class="d-flex justify-content-start" style="margin: 10px 0;">
+    <div class="field">
+      <%= f.label :atopy %>
+      <%= f.check_box :atopy, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :pimple %>
+      <%= f.check_box :pimple, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :allergy %>
+      <%= f.check_box :allergy, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :bb %>
+      <%= f.check_box :bb, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :lip %>
+      <%= f.check_box :lip, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :eyebrow %>
+      <%= f.check_box :eyebrow, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :eyeline %>
+      <%= f.check_box :eyeline, style:"margin-right:25px;" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :color %>
+      <%= f.check_box :color, style:"margin-right:25px;" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :atopy %>
-    <%= f.check_box :atopy %>
-  </div>
-
-  <div class="field">
-    <%= f.label :pimple %>
-    <%= f.check_box :pimple %>
-  </div>
-
-  <div class="field">
-    <%= f.label :allergy %>
-    <%= f.check_box :allergy %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bb %>
-    <%= f.check_box :bb %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lip %>
-    <%= f.check_box :lip %>
-  </div>
-
-  <div class="field">
-    <%= f.label :eyebrow %>
-    <%= f.check_box :eyebrow %>
-  </div>
-
-  <div class="field">
-    <%= f.label :eyeline %>
-    <%= f.check_box :eyeline %>
-  </div>
-
-  <div class="field">
-    <%= f.label :color %>
-    <%= f.check_box :color %>
-  </div>
-
   <div class="field">
     <%= f.label :skincolor %>
     <%= f.number_field :skincolor %>
   </div>
+  
 
 
-
-  <div class="actions">
-    <%= f.submit %>
+  <div align="center">
+    <div class="actions" style="margin: 20px 0px 60px 0px ;">
+      <%= f.submit "작성", class:"btn btn-secondary", style:"margin-right:30px;" %>
+      <%= link_to '취소', products_path, class:"btn btn-secondary", style:"margin-leftt:30px;" %>
+    </div>
   </div>
 <% end %>
