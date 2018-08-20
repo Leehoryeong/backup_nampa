@@ -10,29 +10,38 @@
     padding-left:0;
 }
 </style>
-  <div style="margin-top:5%">
+  <div style="margin-top:5%" align="left">
     <ul>
       <% @products.each do |product| %>
-          <div class="row no-gutter">
-              <div class="col padding-0">
-                <h1 style="text-align:center; margin-top:10%"><%= @ranking %></h1>
+          <div class="d-flex justify-content-around" style="margin-left:100px;" >
+              <div class="padding-0" style-"position:absolute;">
+                <h1 style="text-align:center; margin-top:10% position:absolute;"><%= @ranking %></h1>
               </div>
-              <div class="col">
+              <div class="col padding-0" style = "margin-left:50px;">
                  <%= image_tag product.image.url(:thumb), size:"100x100" %>
               </div>
-              <div class="col-lg- ">
+              <div class="col">
                 <p style="font-size:15pt;"><%= product.name%></p>
                 <% k = product.score.floor()  %> 
                 <p style="font-size:10pt;">150mm <%= product.price %>원 <br>
                 <%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%> (<%= product.reviews.count %>)  
                 </p>
               </div>
-              <div class="col">
+              <div class="col" stlye="position:absolute;">
+                <br>
+
+              </div>
+  
+              <div class="col" stlye="position:absolute;">
                 <br>
                 <span class="category-clip badge badge-primary">
                   <%= link_to '상세보기', product, style:"color: inherit;" %>
                 </span>
               </div>
+              <div class="col" stlye="position:absolute;">
+                <br>
+              </div>
+              
             </div>
           <hr> 
           <% @ranking += 1 %>     
