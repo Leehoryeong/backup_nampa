@@ -27,12 +27,7 @@
                 <%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%> (<%= product.reviews.count %>)  
                 </p>
               </div>
-              <div class="col" stlye="position:absolute;">
-                <br>
-
-              </div>
-  
-              <div class="col" stlye="position:absolute;">
+              <div class="col" stlye="position:absolute;" align="right">
                 <br>
                 <span class="category-clip badge badge-primary">
                   <%= link_to '상세보기', product, style:"color: inherit;" %>
@@ -41,7 +36,7 @@
               <div class="col" stlye="position:absolute;">
                 <br>
               </div>
-              
+    
             </div>
           <hr> 
           <% @ranking += 1 %>     
