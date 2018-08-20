@@ -95,9 +95,11 @@ body { font-family: 'NanumSquare', sans-serif !important; }
 .show-comments { padding: 20px; }
 
 /* ranking/index */
-.shop_wrap { width: 100%; }
-.shop_filter { width: 30%; }
-.shop_result { width: 70%; }
+.ranking-wrap { width: 70%; margin: 40px auto 0 auto; }
+.ranking-box { width: 100%; margin-bottom: 10px; padding-bottom: 20px; border-bottom: 1px solid #afafaf; }
+.ranking-box-rank { width: 15% }
+.ranking-box-img { width: 20% }
+.ranking-box-contents { width: 60% }
 
 /* products */
 .new-wrap {

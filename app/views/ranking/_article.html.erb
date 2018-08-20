@@ -1,0 +1,26 @@
+<div class="ranking-wrap">
+  <% @products.each do |product| %>
+    <div class="ranking-box d-flex justify-content-center">
+      <div class="ranking-box-rank">
+        <h1 style="text-align:center"><%= @ranking %> </h1>
+      </div>
+      <div class="ranking-box-img">
+         <%= image_tag product.image.url(:thumb), size:"90x90" %>
+      </div>
+      <div class="ranking-box-contents">
+        <p><%= product.name%></p>
+        <p>
+          <%= product.price %> 원 /
+          <% k = product.score.floor()  %>
+          <%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%>(<%= product.reviews.count %>)
+
+          <span class="category-clip badge badge-primary">
+            <%= link_to '상세보기', product, style:"color: inherit;" %>
+          </span>
+        </p>
+      </div>
+    </div>
+    <% @ranking += 1 %>
+  <% end %>
+  <% ranking = 0 %>
+</div>
