@@ -1,5 +1,5 @@
 <%= render "header" %>
-<h1>Products</h1>
+<h1>제품등록</h1>
 
 <br>
 
@@ -7,21 +7,12 @@
   <thead>
     <tr>
       <th scope="col">Categroy</th>
-      <th scope="col">Name</th>
-      <th scope="col">Brand</th>
+      <th scope="col">image</th>
+      <th scope="col">Info</th>
       <th scope="col">Skintype</th>
       <th scope="col">Age</th>
-      <!--<th scope="col">Atopy</th>-->
-      <!--<th scope="col">Pimple</th>-->
-      <!--<th scope="col">Allergy</th>-->
-      <!--<th scope="col">Bb</th>-->
-      <!--<th scope="col">Lip</th>-->
-      <!--<th scope="col">Eyebrow</th>-->
-      <!--<th scope="col">Eyeline</th>-->
-      <th scope="col">Color</th>
       <th scope="col">Skincolor</th>
-      <th scope="col">Price</th>
-      <th scope="col">분류</th>
+      <th scope="col">edit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,37 +20,20 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.category %></td>
-        <td><%= product.name %></td>
-        <td><%= product.brand %></td>
-        <td><%= product.skintype %></td>
-        <td><%= product.age %></td>
-        <!--<td><%#= product.atopy %></td>-->
-        <!--<td><%#= product.pimple %></td>-->
-        <!--<td><%#= product.allergy %></td>-->
-        <!--<td><%#= product.bb %></td>-->
-        <!--<td><%#= product.lip %></td>-->
-        <!--<td><%#= product.eyebrow %></td>-->
-        <!--<td><%#= product.eyeline %></td>-->
-        <td><%= product.color %></td>
-        <td><%= product.skincolor %></td>
-        <td><%= product.price %></td>
+        <td><br><strong><%= product.category %></strong></td>
+        <td><%= link_to image_tag(product.image.url(:thumb), size:"70x70"), product_path(product) %></td>
+        <td><%= product.name %><br><%= product.price %><br><%= product.brand %></td>
+        <td><br><%= product.skintype %></td>
+        <td><br><%= product.age %></td>
+        <td><br><%= product.skincolor %></td>
         <td>
-          <% product_menu = [product.atopy, product.pimple, product.allergy, product.bb, product.lip, product.eyebrow, product.eyeline] %>
-          <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %> 
-          <% key = 0 %>
-          <% product_menu.each do |menu| %>
-            <% if menu == true %>
-              <p> <%= box[key] %></p>
-              <% key = key + 1 %>
-            <% end %>
-          <% end %>    
-        </td>
-
-        <td><%= link_to 'Show', product %>
         <% if current_user && current_user.roles.first.name == 'admin' %><br>
-          <%= link_to 'Edit', edit_product_path(product) %><br>
-          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <span class="category-clip badge badge-primary">
+              <%= link_to 'Edit', edit_product_path(product), style:"color: inherit;"  %><br>
+            </span>
+            <span class="category-clip badge badge-primary">
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, style:"color: inherit;" %></td>
+            </span>
         <% end %>
       </tr>
     <% end %>
@@ -72,3 +46,49 @@
   <%= link_to 'New Product', new_product_path, class:"btn btn-secondary" %>
 <% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--<th scope="col">Atopy</th>-->
+      <!--<th scope="col">Pimple</th>-->
+      <!--<th scope="col">Allergy</th>-->
+      <!--<th scope="col">Bb</th>-->
+      <!--<th scope="col">Lip</th>-->
+      <!--<th scope="col">Color</th>-->
+      <!--<th scope="col">Eyebrow</th>-->
+      <!--<th scope="col">Eyeline</th>-->
+      <!--<th scope="col">Price</th>-->
+      <!--<th scope="col">분류</th>-->
+      <!--<th scope="col">Brand</th>-->
+
+        <!--<td><%#= product.brand %></td>-->
+        <!--<td><%#= product.atopy %></td>-->
+        <!--<td><%#= product.pimple %></td>-->
+        <!--<td><%#= product.allergy %></td>-->
+        <!--<td><%#= product.bb %></td>-->
+        <!--<td><%#= product.lip %></td>-->
+        <!--<td><%#= product.color %></td>-->
+        <!--<td><%#= product.eyebrow %></td>-->
+        <!--<td><%#= product.eyeline %></td>-->
+        <!--<td><%#= product.price %></td>-->
+        <!--<td>-->
+        <!--  <%# product_menu = [product.atopy, product.pimple, product.allergy, product.bb, product.lip, product.eyebrow, product.eyeline] %>-->
+        <!--  <%# box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %> -->
+        <!--  <%# key = 0 %>-->
+        <!--  <%# product_menu.each do |menu| %>-->
+        <!--    <%# if menu == true %>-->
+        <!--      <p> <%#= box[key] %></p>-->
+        <!--      <%# key = key + 1 %>-->
+        <!--    <#% end %>-->
+        <!--  <%# end %>    -->
+        <!--</td>-->
