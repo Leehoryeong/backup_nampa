@@ -12,7 +12,7 @@
       </tr>
       <div class="row" style="margin-bottom:4%;">
         <div class="col" style="margin-left:5%;">
-          <h1 style="text-align:center"><%= @ranking %>.</h1>
+          <h1 style="text-align:center"><%= @ranking %> </h1>
         </div>
         <div class="col" style="margin-left:-25%;">
            <%= image_tag product.image.url(:thumb), size:"70x70" %>
@@ -20,21 +20,20 @@
         <div class="col" style="margin-left:-43%;">
           <p style="font-size:15pt;"><%= product.name%></p>
           <br>
-          <p style="margin-top:-10%;"> 
-            150mm <%= product.price %>원  <%= product.score %> 
-            <% k = product.score.floor()  %> <%= '♥'*k %><%= '♡'* (5-k)%> (<%= product.reviews.count %>)
+          <p style="margin-top:-10%;">
+            <%= product.price %> 원 /
+            <% k = product.score.floor()  %>
+            <%= product.score %> <%= '♥'*k %><%= '♡'* (5-k)%>(<%= product.reviews.count %>)
+
             <span class="category-clip badge badge-primary">
               <%= link_to '상세보기', product, style:"color: inherit;" %>
             </span>
           </p>
         </div>
-        <!--<div class="col">-->
-        <!--  <p >&nbsp</p>-->
-        <!--</div>-->
       </div>
-      <% @ranking += 1 %>     
+      <% @ranking += 1 %>
     <% end %>
-    <% ranking = 0 %> 
+    <% ranking = 0 %>
   </div>
   </table>
 </div>

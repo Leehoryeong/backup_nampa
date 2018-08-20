@@ -3,28 +3,25 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
-  # GET /products
-  # GET /products.json
   def index
     @products = Product.all
   end
 
-  # GET /products/1
-  # GET /products/1.json
   def show
   end
 
-  # GET /products/new
   def new
     @product = current_user.products.build
   end
 
-  # GET /products/1/edit
   def edit
   end
 
-  # POST /products
-  # POST /products.json
+  def category
+    @p = params[:category]
+    @products = Product.where(:category => @p)
+  end
+
   def create
     @product = current_user.products.build(product_params)
 

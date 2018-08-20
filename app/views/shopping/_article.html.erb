@@ -46,7 +46,6 @@
         <div class="card-body shop-card-body">
           <%= link_to image_tag(product.image.url(:thumb), size:"50x200"), product_path(product) %>
           <% k = product.score.floor()  %>
-
           <div class="shop-bottom-line-wrap d-flex justify-content-center">
             <p class="shop-bottom-line product-review"><%= product.score %> <br><%= '♥'*k %><%= '♡'* (5-k)%></p>
             <p class="shop-bottom-line product-price"><%= product.price %> 원</p>
