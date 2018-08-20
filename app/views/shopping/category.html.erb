@@ -21,8 +21,8 @@
         <div class="card-header shop-card-header d-flex justify-content-center">
           <div class="card-header-title">
             <h4>
-              <% if product.name.length > 8 %>
-                <%= link_to (product.name[0,8] + " .."), product_path(product), class: "manual-card-title" %>
+              <% if product.name.length > 6 %>
+                <%= link_to (product.name[0,6] + " .."), product_path(product), class: "manual-card-title" %>
               <% else %>
                 <%= link_to product.name, product_path(product), class: "manual-card-title" %>
               <% end %>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="card-body shop-card-body">
-          <%= link_to image_tag(product.image.url(:thumb)), product_path(product) %>
+          <%= link_to image_tag(product.image.url(:thumb), size:"50x200"), product_path(product) %>
           <% k = product.score.floor()  %>
 
           <div class="shop-bottom-line-wrap d-flex justify-content-center">
