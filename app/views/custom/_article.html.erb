@@ -1,15 +1,10 @@
-<% list = ["피부", "화장", "헤어", "바디"] %>
-<% contentsCount = [0,0,0,0] %>
-
 <% (0..3).each do |i| %>
-<div class="alert alert-primary custom-category-title" role="alert">
-  <p>당신의 <strong><%= list[i] %></strong> 정보에 알맞은 제품을 추천드려요. </p>
-</div>
-<div class="d-flex justify-content-center" >
-  <% @products.each do |product| %>
-    <%if contentsCount[i] <=5 %>
-      <% if product.category == list[i] %>
-
+  <div class="custom-products-wrap">
+    <div class="alert alert-primary custom-category-title">
+      당신의 <strong><%= @products_best[i][0] %></strong>정보에 알맞은 상위 1~4위 제품 입니다.
+    </div>
+    <div class="row d-flex justify-content-center" >
+      <% @products_best[i][1].each do |product| %>
         <div class="col-12 col-lg-3 col-md-4 col-sm-6">
           <div class="card">
 
@@ -48,12 +43,7 @@
             </div>
           </div>
         </div>
-
       <% end %>
-      <% contentsCount[i] += 1 %>
-    <% end %>
-  <% end %>
-</div>
-
-<% contentsCount = [0,0,0,0] %>
+    </div>
+  </div>
 <% end %>

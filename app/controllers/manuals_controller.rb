@@ -98,10 +98,15 @@ class ManualsController < ApplicationController
 
     # @manuals 재배열
     @manualArray = @manualArray.sort.reverse
-    @manuals = [] #초기화
+    @manuals = []
+    @manuals_best = []
     for i in 0..(@manualArray.length-1)
       if @manualArray[i][0] > 0
-        @manuals << Manual.find(@manualArray[i][1])
+        if i < 4
+          @manuals_best << Manual.find(@manualArray[i][1])
+        else
+          @manuals << Manual.find(@manualArray[i][1])
+        end
       end
     end
   end

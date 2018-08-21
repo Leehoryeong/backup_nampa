@@ -73,11 +73,45 @@ class CustomController < ApplicationController
     end
 
     # @products 재배열
-    @productArray = @productArray.sort.reverse
     @products = []
+    @productArray = @productArray.sort.reverse
     for i in 0..(@productArray.length-1)
       if @productArray[i][0] > 0
         @products << Product.find(@productArray[i][1])
+      end
+    end
+
+    # 카테고리별 맞춤제품 뽑아내기
+    @products_best = Array.new(4){Array.new(2)}
+    category = ['피부', '화장', '헤어', '바디']
+    for i in 0..1
+      for j in 0..3
+        if i == 0
+          @products_best[j][i] = category[j]
+        else
+          @products_best[j][i] = []
+        end
+      end
+    end
+
+    @products.each do |p|
+      case p.category
+      when '피부'
+        if @products_best[0][1].length < 4
+          @products_best[0][1] << p
+        end
+      when '화장'
+        if @products_best[1][1].length < 4
+          @products_best[1][1] << p
+        end
+      when '헤어'
+        if @products_best[2][1].length < 4
+          @products_best[2][1] << p
+        end
+      else
+        if @products_best[0][1].length < 4
+          @products_best[3][1] << p
+        end
       end
     end
   end

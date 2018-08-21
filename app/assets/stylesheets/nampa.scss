@@ -39,6 +39,14 @@ body { font-family: 'NanumSquare', sans-serif !important; }
 
 /* manuals index */
 .manuals-wrap { margin-top: 40px; }
+.manuals-best-wrap { margin-top: 40px; padding: 20px 20px 0 20px; border: 1px solid #afafaf; }
+.manuals-best-box { }
+.manuals-best-title {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto 20px auto;
+  font-size: 1em;
+}
 .card-header { background: #fff !important; border-bottom: none !important; }
 .manual-card-body { padding: 0!important; }
 .card { margin-bottom: 20px; }
@@ -54,8 +62,14 @@ body { font-family: 'NanumSquare', sans-serif !important; }
 .card-bottom-right { width: 40%; text-align: right; margin-right: 20px; }
 
 /* Custom */
-.custom-category-title p { text-align: center; }
-.custom-category-title { width: 70%; margin: 20px auto; }
+.custom-category-title {
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+  font-size: 1em;
+}
+.custom-products-wrap { border: 1px solid #efefef; padding: 0 20px; margin-bottom: 20px; }
+
 
 /* Shopping index(article.html.erb)*/
 /* 대부분 manual-card 코드를 이용했음 */
