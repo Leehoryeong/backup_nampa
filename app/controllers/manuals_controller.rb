@@ -6,7 +6,6 @@ class ManualsController < ApplicationController
 
   def index
     if current_user.userspec
-      @m = Manual
       @manuals = Manual.all
       sorting(@manuals)
     elsif
@@ -101,7 +100,9 @@ class ManualsController < ApplicationController
     @manualArray = @manualArray.sort.reverse
     @manuals = [] #초기화
     for i in 0..(@manualArray.length-1)
-      @manuals << Manual.find(@manualArray[i][1])
+      if @manualArray[i][0] > 0
+        @manuals << Manual.find(@manualArray[i][1])
+      end
     end
   end
 

@@ -1,0 +1,59 @@
+<% list = ["피부", "화장", "헤어", "바디"] %>
+<% contentsCount = [0,0,0,0] %>
+
+<% (0..3).each do |i| %>
+<div class="alert alert-primary custom-category-title" role="alert">
+  <p>당신의 <strong><%= list[i] %></strong> 정보에 알맞은 제품을 추천드려요. </p>
+</div>
+<div class="d-flex justify-content-center" >
+  <% @products.each do |product| %>
+    <%if contentsCount[i] <=5 %>
+      <% if product.category == list[i] %>
+
+        <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+          <div class="card">
+
+            <div class="card-header shop-card-header d-flex justify-content-center">
+              <div class="card-header-title">
+                <h4>
+                  <% if product.name.length > 6 %>
+                    <%= link_to (product.name[0,6] + " .."), product_path(product), class: "manual-card-title" %>
+                  <% else %>
+                    <%= link_to product.name, product_path(product), class: "manual-card-title" %>
+                  <% end %>
+                </h4>
+              </div>
+
+              <div class="card-header-category">
+                <span class="category-clip badge badge-primary">
+                  <%= product.category %>
+                </span>
+              </div>
+            </div>
+
+            <div class="card-body shop-card-body">
+              <%= link_to image_tag(product.image.url(:thumb)), product_path(product) %>
+              <% k = product.score.floor()  %>
+              <div class="shop-bottom-line-wrap d-flex justify-content-center">
+                <p class="shop-bottom-line product-review">
+                  <%= product.score %> <br><%= '♥'*k %><%= '♡'* (5-k)%>
+                  <span class="reviews-count">(<%= product.reviews.count %>)</span>
+                </p>
+                <p class="shop-bottom-line product-price"><%= product.price %> 원</p>
+              </div>
+            </div>
+
+            <div class="card-bottom shop-card-bottom">
+              <%= time_ago_in_words(product.created_at) %> 전
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+      <% contentsCount[i] += 1 %>
+    <% end %>
+  <% end %>
+</div>
+
+<% contentsCount = [0,0,0,0] %>
+<% end %>

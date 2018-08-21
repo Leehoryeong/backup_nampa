@@ -76,7 +76,9 @@ class CustomController < ApplicationController
     @productArray = @productArray.sort.reverse
     @products = []
     for i in 0..(@productArray.length-1)
-      @products << Product.find(@productArray[i][1])
+      if @productArray[i][0] > 0
+        @products << Product.find(@productArray[i][1])
+      end
     end
   end
 
