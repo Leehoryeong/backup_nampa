@@ -39,7 +39,7 @@ body { font-family: 'NanumSquare', sans-serif !important; }
 
 /* manuals index */
 .manuals-wrap { margin-top: 40px; }
-.manuals-best-wrap { margin-top: 40px; padding: 20px 20px 0 20px; border: 1px solid #afafaf; }
+.manuals-best-wrap { margin-top: 40px; padding: 20px 20px 0 20px; border: 1px solid #efefef; }
 .manuals-best-box { }
 .manuals-best-title {
   text-align: center;
@@ -111,6 +111,7 @@ body { font-family: 'NanumSquare', sans-serif !important; }
 .show-title { font-size: 1.6em; color: #555; }
 .show-body { padding: 20px; }
 .show-body img { width: 100%; }
+.show-body>p>img { width: 100% !important; height: auto !important; }
 .show-footer { width: 100%; border-bottom: 1px solid #efefef; }
 .show-footer-left { width: 50%; padding: 20px; }
 .show-footer-right { width: 50%; padding: 20px; }

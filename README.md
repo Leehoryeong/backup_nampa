@@ -15,7 +15,7 @@
 - 전준혁 : 메인기능/유저인증 구축, 제품/메뉴얼 알고리즘 개발, 테스팅(Faker 더미데이터 활용)
 - 이호령 : ranking(index,category) manual(index,category,show) product(show,index,neww,edit) 페이지 css구축
 - 오지혜 :
-- 김정현 :
+- 김정현 : 
 
 
 ### 날짜별 진행사항
@@ -45,6 +45,10 @@
 - < Front >
 - home#index를 제외한 전체 페이지 디자인 구성 완료
 - manual,custom,ranking,shopping => index, category, show 페이지 완성 (shopping은 아직 show페이지 미구현입니다)
+
+**8월 21일 진행사항**
+- Back: 맞춤 매뉴얼, 맞춤 제품 상위 1~4개 뽑아내기 추가
+- Front: Manual, Userspec Form Design
 
 ### 해야할것
 * 알아야할 것: 맞춤제품, 랭킹, 쇼핑, 제품등록의 show page(show.html.erb)는 동일합니다!

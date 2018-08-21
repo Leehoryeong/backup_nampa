@@ -60,7 +60,7 @@ class ShoppingController < ApplicationController
       index += 1
     end
 
-    @productArray = @productArray.sort.reverse
+    @productArray = @productArray.sort
     @products = []
     for i in 0..(@productArray.length-1)
       @products << Product.find_by_id(@productArray[i][1])
