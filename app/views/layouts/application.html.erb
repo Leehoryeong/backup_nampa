@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   </head>
 
   <body style="background-color: #FAFAFA;">
@@ -46,5 +47,31 @@
     <div class="container app-container">
       <%= yield %>
     </div>
+
+    <footer>
+      <div class="container d-flex align-items-center">
+        <div style="width: 100%; height: auto;">
+          <div class="footer-box1 d-flex justify-content-center">
+            <ul class="footer-info">
+              <li><span class="span-right">주식회사 남자의파우치</span><span class="span-left">소재지: 서울특별시 광진구 화양동 421-2 202호</span></li><br>
+              <li><span class="span-right">대표전화: 010-0000-0000</span>|<span class="span-left">전자우편: coutact@manspouch.co.kr</span></li>
+              <li><span class="span-right">사업자등록번호: 211-12-12121</span>|<span class="span-left">통신판매업신고번호: 제2018-서울강남-00123호</span></li>
+            </ul>
+
+            <ul class="footer-icon d-flex justify-content-left">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="footer-box2 d-flex justify-content-left">
+            <p class="copyright">
+              CopyrightⓒMANSPOUCH Inc. All Rights Reserved.
+            </p>
+            <p class="footer-logo">MANSPOUCH</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
