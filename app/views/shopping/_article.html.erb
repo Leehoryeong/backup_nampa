@@ -1,15 +1,16 @@
 
 <%= render 'header' %>
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    정렬하기
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/shopping/<%= 'price' %>">가격순</a>
-    <a class="dropdown-item" href="/shopping/<%= 'created' %>">최신순</a>
-    <a class="dropdown-item" href="/shopping/<%= 'review' %>">만족도</a>
-    <a class="dropdown-item" href="#">구매순</a>
+<div align="right" style="margin-right:3%;">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      정렬하기
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/shopping/<%= 'price' %>">가격순</a>
+      <a class="dropdown-item" href="/shopping/<%= 'created' %>">최신순</a>
+      <a class="dropdown-item" href="/shopping/<%= 'review' %>">만족도</a>
+      <a class="dropdown-item" href="#">구매순</a>
+    </div>
   </div>
 </div>
 <hr>

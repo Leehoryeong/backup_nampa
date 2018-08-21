@@ -13,7 +13,7 @@
 - 방민석 : 랭킹(별점순), 쇼핑페이지 구현, 제품 랭킹 출력부분
 - 전수종 :
 - 전준혁 : 메인기능/유저인증 구축, 제품/메뉴얼 알고리즘 개발, 테스팅(Faker 더미데이터 활용)
-- 이호령 : ranking(index,category) manual(index,category,show) product(show) 페이지 css구축
+- 이호령 : ranking(index,category) manual(index,category,show) product(show,index,neww,edit) 페이지 css구축
 - 오지혜 :
 - 김정현 :
 
