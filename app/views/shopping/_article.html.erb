@@ -1,6 +1,4 @@
-
-<%= render 'header' %>
-<div align="right" style="margin-right:3%;">
+<div align="right" class="category-btn">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       정렬하기
@@ -9,7 +7,6 @@
       <a class="dropdown-item" href="/shopping/<%= 'price' %>">가격순</a>
       <a class="dropdown-item" href="/shopping/<%= 'created' %>">최신순</a>
       <a class="dropdown-item" href="/shopping/<%= 'review' %>">만족도</a>
-      <a class="dropdown-item" href="#">구매순</a>
     </div>
   </div>
 </div>
@@ -45,7 +42,7 @@
         </div>
 
         <div class="card-body shop-card-body">
-          <%= link_to image_tag(product.image.url(:thumb), size:"50x200"), product_path(product) %>
+          <%= link_to image_tag(product.image.url(:thumb)), product_path(product) %>
           <% k = product.score.floor()  %>
           <div class="shop-bottom-line-wrap d-flex justify-content-center">
             <p class="shop-bottom-line product-review"><%= product.score %> <br><%= '♥'*k %><%= '♡'* (5-k)%></p>
