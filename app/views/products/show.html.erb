@@ -1,20 +1,20 @@
 <div class="show-wrap">
   <div class="show-header">
     <span class="show-title"><%= @product.name %></span> <br>
-   
+
 
     <span class="badge badge-pill badge-secondary"  style="height:20px;">
       <%= @product.category %>
     </span>
     <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
       <%= @product.skintype %>
-    </span>    
+    </span>
     <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
       <%= @product.age %>
     </span>
      <!-- True인 값의 제목을 가져오는 함수 -->
     <% product_menu = [@product.atopy, @product.pimple, @product.allergy, @product.bb, @product.lip, @product.eyebrow, @product.eyeline] %>
-    <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %> 
+    <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %>
     <% key = 0 %>
     <% product_menu.each do |menu| %>
       <% if menu == true %>
@@ -23,7 +23,7 @@
         </span>
         <% key = key + 1 %>
       <% end %>
-    <% end %>    
+    <% end %>
   </div>
 
   <div class="show-body" style="width:300px;">
@@ -64,7 +64,7 @@
           <%= time_ago_in_words(r.created_at) %> 전
         </div>
         <div class="comments-line-right d-flex justify-content-center">
-          
+
           <a class="delete-comment" href="<%= product_review_path(@product, r) %>" data-method="delete" data-confirm="정말로 삭제하시겠습니까?">x</a>
         </div>
       </div>
@@ -74,17 +74,3 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -111,7 +111,7 @@ class CustomController < ApplicationController
           @products_best[2][1] << p
         end
       else
-        if @products_best[0][1].length < 4
+        if @products_best[3][1].length < 4
           @products_best[3][1] << p
         end
       end

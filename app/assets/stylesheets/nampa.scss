@@ -40,7 +40,7 @@ ul, li { list-style: none; padding: 0; margin: 0; }
   text-transform:uppercase;
 }
 .main-nav-bar {
-  background: #164059 !important;
+  background: #1A2E65 !important;
   overflow:auto;
 }
 .main-logo {
@@ -70,10 +70,7 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 .manuals-best-wrap { margin-top: 40px; padding: 20px 0 0 20px; border: 1px solid #efefef; }
 .manuals-best-box { }
 .manuals-best-title {
-  text-align: center;
-  width: 70%;
-  margin: 0 auto 20px auto;
-  font-size: 1em;
+  font-family: 'Binggrae-Bold';
 }
 .card-header {
   background: #fff !important;
@@ -164,6 +161,10 @@ ul, li { list-style: none; padding: 0; margin: 0; }
   width: 70%;
   margin: 0 auto;
 }
+
+/* userspec */
+.new-wrap .usersepc-title { font-family: 'Binggrae-Bold'; margin: 40px 0 20px 0; }
+.userspec-wrap { margin-bottom: 40px !important; }
 
 /* category _header*/
 
