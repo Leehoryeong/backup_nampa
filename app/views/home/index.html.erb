@@ -57,7 +57,12 @@
               <%= manual.title[0,8] %> ..
             <% else %>
               <%= manual.title  %>
-            <% end %>
+            <% end %> <br>
+
+            <span style="color: #afafaf;" class="home-eye-span">
+              <%= manual.impressionist_count %> Views
+              <%= image_tag "eye.png" %>
+            </span>
           </div>
           <div class="card-body">
             <%= link_to image_tag(manual.image.url(:thumb)), manual_path(manual) %>

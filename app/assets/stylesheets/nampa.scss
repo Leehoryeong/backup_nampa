@@ -25,9 +25,9 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 }
 .main-nav a {
   font-family: 'Binggrae-Bold' !important;
-  width:110px;
+  width:120px;
   padding:10px 10px;
-  font-family:Arial;
+  font-size: 18px;
   color:#fff !important;
   text-align:center;
   // font-weight: bold;
@@ -86,12 +86,10 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 .manual-like:hover { text-decoration: none; opacity: 0.5; }
 .card-header-title { width: 80%; }
 .card-header-category { width: 20%; }
-// 수종 조회수 초안
-.card-top-right { width: 90%; text-align: right; }
-
 .card-bottom { width: 100%; margin: 10px 0;}
 .card-bottom-left { width: 40%; margin-left: 10px; font-size: 14px; line-height: 24px; }
 .card-bottom-right { width: 60%; text-align: right; margin-right: 10px; }
+.eye-padding-bottom { padding-bottom: 10px!important; }
 
 /* Custom */
 .custom-category-title {
