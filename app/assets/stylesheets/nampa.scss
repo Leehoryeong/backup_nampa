@@ -1,10 +1,12 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Monoton');
-body { font-family: 'NanumSquare', sans-serif !important; }
+@font-face { font-family: 'Binggrae-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+body { font-family: 'NanumSquare', sans-serif !important; background: #FAFAFA; }
 ul, li { list-style: none; padding: 0; margin: 0; }
+
 /* 공통 */
 .app-container { margin-top: 20px; } /* appication conteiner */
-.header-common-title { text-align: center; margin: 40px 0 20px 0; }
+.header-common-title { text-align: center; margin: 40px 0 20px 0; font-family: 'Binggrae-Bold'; }
 
 /* new form _manuals, products*/
 .spec-detail { margin-right: 20px; }
@@ -15,15 +17,38 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 .input-text{ width: 500px; margin-bottom: 5px; }
 
 /* Nav */
-.main-nav a { font-weight: bold; color: #FFFFF3 !important}
-.main-nav a:hover { color: #d6ecfa !important; }
-.main-nav-bar { background: #011638 !important; }
+.main-logo-img { width: 100px; }
+.main-logo-box {
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+.main-nav a {
+  font-family: 'Binggrae-Bold' !important;
+  width:110px;
+  padding:10px 10px;
+  font-family:Arial;
+  color:#fff !important;
+  text-align:center;
+  // font-weight: bold;
+  // color: #FFFFF3 !important
+}
+.main-nav a:hover {
+  color: #d6ecfa !important;
+  background:black;
+  transition:0.4s;
+  text-transform:uppercase;
+}
+.main-nav-bar {
+  background: #164059 !important;
+  overflow:auto;
+}
 .main-logo {
   font-weight: bold;
   color: #FFFFF3 !important;
 } .main-logo:hover { text-decoration: none;}
-.user-bar li a { color: #FFFFF3 !important; }
-.sub-nav li a { color: #011638; font-weight: bold; }
+.user-bar li a { color: #FFFFF3 !important; font-family: 'Binggrae-Bold' !important; }
+.user-bar li a:hover { color: #afafaf !important; }
 
 /* cetegory nav */
 .categories {
@@ -50,19 +75,23 @@ ul, li { list-style: none; padding: 0; margin: 0; }
   margin: 0 auto 20px auto;
   font-size: 1em;
 }
-.card-header { background: #fff !important; border-bottom: none !important; }
+.card-header {
+  background: #fff !important;
+  border-bottom: none !important;
+  padding: 10px 10px 5px 10px!important;
+ }
 .manual-card-body { padding: 0!important; }
 .card { margin-bottom: 20px; }
-.manual-card-title { color: #555; }
+.manual-card-title { color: #555; font-size: 18px; }
 .manual-card-title:hover { text-decoration: none; color: #777; }
-.manual-card-body img { width: 100%; height: 200px; }
+.manual-card-body img { width: 100%; height: 190px; }
 .manual-like { color: black; }
 .manual-like:hover { text-decoration: none; opacity: 0.5; }
 .card-header-title { width: 80%; }
 .card-header-category { width: 20%; }
-.card-bottom { width: 100%; margin: 20px 0;}
-.card-bottom-left { width: 60%; margin-left: 20px; }
-.card-bottom-right { width: 40%; text-align: right; margin-right: 20px; }
+.card-bottom { width: 100%; margin: 10px 0;}
+.card-bottom-left { width: 40%; margin-left: 10px; font-size: 14px; line-height: 24px; }
+.card-bottom-right { width: 60%; text-align: right; margin-right: 10px; }
 
 /* Custom */
 .custom-category-title {
@@ -70,7 +99,9 @@ ul, li { list-style: none; padding: 0; margin: 0; }
   width: 70%;
   margin: 20px auto;
   font-size: 1em;
+  font-family: 'Binggrae-Bold';
 }
+.custom-category-span { color: #ff7473; }
 .custom-products-wrap { border: 1px solid #efefef; padding: 0 20px; margin-bottom: 20px; }
 
 

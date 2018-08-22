@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   </head>
 
-  <body style="background-color: #FAFAFA;">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light main-nav-bar">
       <div class="container">
-        <div class="navbar-brand"><%= link_to '남자의 파우치', root_path, class: "main-logo" %></div>
+        <div class="navbar-brand main-logo-box"><%= link_to image_tag("main-logo.png", :class => "main-logo-img"), root_path, class: "main-logo" %></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav main-nav">
             <a class="nav-item nav-link active" href="<%= manuals_path %>">뷰티설명서</a>
-            <a class="nav-item nav-link active" href="/custom/info">맞춤제품</a>
-            <a class="nav-item nav-link active" href="/ranking/index">랭킹</a>
-            <a class="nav-item nav-link active" href="/shopping/index">쇼핑</a>
+            <a class="nav-item nav-link active" href="/custom/info">맞춤 제품</a>
+            <a class="nav-item nav-link active" href="/ranking/index">제품 랭킹</a>
+            <a class="nav-item nav-link active" href="/shopping/index">SHOPPING</a>
             <% if current_user && current_user.roles.first.name == 'admin' %>
               <a class="nav-item nav-link active" href="/products">제품등록</a>
             <% end %>
@@ -31,14 +31,14 @@
 
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right user-bar">
-            <li class="nav-item"><%= link_to "UserSpec", edit_userspec_path(current_user), class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Account", edit_user_registration_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "내 스펙", edit_userspec_path(current_user), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "내 정보", edit_user_registration_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "로그아웃", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           </ul>
         <% else %>
           <ul class="nav navbar-nav navbar-right user-bar">
-            <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "회원가입", new_user_registration_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "로그인", new_user_session_path, class: "nav-link" %></li>
           </ul>
         <% end %>
       </div>

@@ -6,6 +6,8 @@ class CustomController < ApplicationController
     if current_user.userspec
       @userspec = current_user.userspec
       redirect_to '/custom'
+    else
+      redirect_to new_userspec_path
     end
   end
 

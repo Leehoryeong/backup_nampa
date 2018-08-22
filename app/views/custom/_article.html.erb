@@ -1,7 +1,7 @@
 <% (0..3).each do |i| %>
   <div class="custom-products-wrap">
-    <div class="alert alert-primary custom-category-title">
-      당신의 <strong><%= @products_best[i][0] %></strong>정보에 알맞은 상위 1~4위 제품 입니다.
+    <div class="custom-category-title">
+      당신의 <strong class="custom-category-span"><%= @products_best[i][0] %></strong>정보에 알맞은 상위 1~4위 제품 입니다.
     </div>
     <div class="row d-flex justify-content-center" >
       <% @products_best[i][1].each do |product| %>

@@ -30,7 +30,7 @@ class UserspecsController < ApplicationController
 
     respond_to do |format|
       if @userspec.save
-        format.html { redirect_to @userspec, notice: 'Userspec was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Userspec was successfully created.' }
         format.json { render :show, status: :created, location: @userspec }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class UserspecsController < ApplicationController
   def update
     respond_to do |format|
       if @userspec.update(userspec_params)
-        format.html { redirect_to @userspec, notice: 'Userspec was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Userspec was successfully updated.' }
         format.json { render :show, status: :ok, location: @userspec }
       else
         format.html { render :edit }
