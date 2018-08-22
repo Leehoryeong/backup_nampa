@@ -3,6 +3,13 @@ class ManualsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
+  before_action :log_impression, :only=> [:show]
+
+  def log_impression
+    @hit_manual = Manual.find(params[:id])
+    # this assumes you have a current_user method in your authentication system
+    @hit_manual.impressions.create(ip_address: request.remote_ip,user_id:current_user.id)
+  end
 
   def index
     if current_user.userspec
@@ -25,6 +32,8 @@ class ManualsController < ApplicationController
 
   def show
     @users = User.all
+    @manual = Manual.find params[:id]
+    impressionist(@manual)
 
   end
 

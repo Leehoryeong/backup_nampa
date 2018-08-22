@@ -41,6 +41,11 @@
                 </span>
               </div>
             </div>
+            
+              <div class="card-top-right">
+                <%= "#{manual.impressionist_count}" %>&nbsp
+                <img style="height:25px;" src="https://image.flaticon.com/icons/png/128/63/63568.png"></img>
+              </div>
 
             <div class="card-body manual-card-body">
               <%= link_to image_tag(manual.image.url(:thumb)), manual_path(manual) %>
@@ -91,6 +96,11 @@
             </span>
           </div>
         </div>
+        
+          <div class="card-top-right">
+            <%= "#{manual.impressionist_count}" %>&nbsp
+            <img style="height:25px;" src="https://image.flaticon.com/icons/png/128/63/63568.png"></img>
+          </div>
 
         <div class="card-body manual-card-body">
           <%= link_to image_tag(manual.image.url(:thumb)), manual_path(manual) %>
