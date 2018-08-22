@@ -1,8 +1,9 @@
 <div class="manuals-best-wrap">
   <% if current_user.userspec %>
-    <div class="alert alert-primary manuals-best-title">
-      <strong><%= current_user.nickname %></strong> 님에게 제공되는 맞춤 메뉴얼 상위 4개입니다.
+    <div class="custom-category-title">
+      <strong><%= current_user.nickname %></strong> 님에게 제공되는 <strong class="custom-category-span">맞춤 메뉴얼 상위 4개</strong>입니다.
     </div>
+
 
     <div class="row d-flex justify-content-center manuals-best-box">
       <% @manuals_best.each do |manual| %>
