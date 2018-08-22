@@ -42,7 +42,7 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 
 /* manuals index */
 .manuals-wrap { margin-top: 40px; }
-.manuals-best-wrap { margin-top: 40px; padding: 20px 20px 0 20px; border: 1px solid #efefef; }
+.manuals-best-wrap { margin-top: 40px; padding: 20px 0 0 20px; border: 1px solid #efefef; }
 .manuals-best-box { }
 .manuals-best-title {
   text-align: center;
@@ -122,12 +122,12 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 .show-comments { padding: 20px; }
 
 /* ranking/index */
-.ranking-wrap { width: 70%; margin: 40px auto 0 auto; }
-.ranking-box { width: 100%; margin-bottom: 10px; padding-bottom: 20px; border-bottom: 1px solid #afafaf; }
+.ranking-wrap { margin: 10px auto 0 auto; }
+.ranking-box {width: 100%; margin-top: 20px; padding-bottom: 0px;}
 .ranking-box-rank { width: 15% }
 .ranking-box-img { width: 20% }
 .ranking-box-contents { width: 60% }
-
+.ranking-best-wrap {margin-bottom: 30px; margin-top: 30px;width: 65%; padding: 20px 20px 20px 20px; border: 1px solid #efefef; }
 /* products */
 .new-wrap {
   width: 70%;

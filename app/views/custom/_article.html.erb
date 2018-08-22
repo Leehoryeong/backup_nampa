@@ -1,8 +1,21 @@
+<h3 align="center"><%= current_user.nickname %>님 맞춤제품 정보입니다.</h3>
+<p align="center" style="margin-top:5pt; color:#7F8C8D; font-size:10pt;">
+  <%= current_user.userspec['skintype'] %> <%= current_user.userspec['age'] %>
+  <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %>
+  <% box.each do |key| %>
+    <% if current_user.userspec[key] == true %>
+      <%= key %>
+    <% end %>
+  <% end %>정보를 반영했습니다.
+  <br>
+</p>
 <% (0..3).each do |i| %>
   <div class="custom-products-wrap">
-    <div class="alert alert-primary custom-category-title">
-      당신의 <strong><%= @products_best[i][0] %></strong>정보에 알맞은 상위 1~4위 제품 입니다.
-    </div>
+      <h3 align="center" style="margin-top:15px; margin-bottom:15px;">
+
+        <strong><%= @products_best[i][0] %></strong> 맞춤제품 
+
+      </h3>
     <div class="row d-flex justify-content-center" >
       <% @products_best[i][1].each do |product| %>
         <div class="col-12 col-lg-3 col-md-4 col-sm-6">
