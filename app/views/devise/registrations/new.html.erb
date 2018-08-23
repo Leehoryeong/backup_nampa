@@ -5,10 +5,10 @@
 
     <div class="form-inputs regi-form">
       <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "off" }, class: "regi-input" %>
-      <%= f.input :nickname, required: true, autofocus: true, input_html: { autocomplete: "off" } %>
-      <%= f.input :phone, required: true, autofocus: true, placeholder: "010-xxxx-xxxx", class: "password-color", input_html: { autocomplete: "off" } %>
-      <%= f.input :password, required: true, input_html: { class: "password-color" } %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :nickname, required: true, autofocus: true, input_html: { autocomplete: "off" }, class: "regi-input" %>
+      <%= f.input :phone, required: true, autofocus: true, placeholder: "010-xxxx-xxxx", class: "password-color", input_html: { autocomplete: "off" }, class: "regi-input" %>
+      <%= f.input :password, required: true, input_html: { class: "password-color" }, class: "regi-input" %>
+      <%= f.input :password_confirmation, required: true, class: "regi-input" %>
       <%= f.button :submit, "회원가입", class: "regi-submit-btn" %>
     </div>
   <% end %>

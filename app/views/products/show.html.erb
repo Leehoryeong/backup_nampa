@@ -2,14 +2,13 @@
   <div class="show-header">
     <span class="show-title"><%= @product.name %></span> <br>
 
-
-    <span class="badge badge-pill badge-secondary"  style="height:20px;">
+    <span class="badge badge-pill badge-secondary">
       <%= @product.category %>
     </span>
-    <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
+    <span class="badge badge-pill badge-success">
       <%= @product.skintype %>
     </span>
-    <span class="badge badge-pill badge-success"  style="height:20px; margin-left:5px;">
+    <span class="badge badge-pill badge-success">
       <%= @product.age %>
     </span>
      <!-- True인 값의 제목을 가져오는 함수 -->
@@ -18,8 +17,8 @@
     <% key = 0 %>
     <% product_menu.each do |menu| %>
       <% if menu == true %>
-        <span class="badge badge-pill badge-info" style="height:20px; margin-left:5px;">
-        <p> <%= box[key] %> </p>
+        <span class="badge badge-pill badge-info">
+          <%= box[key] %>
         </span>
         <% key = key + 1 %>
       <% end %>

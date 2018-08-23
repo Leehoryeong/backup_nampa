@@ -16,19 +16,20 @@ class CustomController < ApplicationController
       @products = Product.all
       sorting(@products)
     elsif
-      review(@products = Product.all.order("created_at DESC"))
+      redirect_to new_userspec_path
+      # review(@products = Product.all.order("created_at DESC"))
     end
   end
 
-  def category
-    @p = params[:category]
-    @products = Product.where(:category => @p)
-    if current_user.userspec
-      sorting(@products)
-    elsif
-      @products = @products.order("created_at DESC")
-    end
-  end
+  # def category
+  #   @p = params[:category]
+  #   @products = Product.where(:category => @p)
+  #   if current_user.userspec
+  #     sorting(@products)
+  #   elsif
+  #     @products = @products.order("created_at DESC")
+  #   end
+  # end
 
   def rating_avr(product)
     # 제품의 리뷰 배열(reviews)에 저장

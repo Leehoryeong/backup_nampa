@@ -154,10 +154,28 @@ ul, li { list-style: none; padding: 0; margin: 0; }
 /* ranking/index */
 .ranking-wrap { margin: 10px auto 0 auto; }
 .ranking-box {width: 100%; margin-top: 20px; padding-bottom: 0px;}
-.ranking-box-rank { width: 15% }
+.ranking-box-rank { width: 15%; margin-top: 10px; }
+.ranking-brand { font-size: 14px; color: #afafaf; }
 .ranking-box-img { width: 20% }
-.ranking-box-contents { width: 60% }
-.ranking-best-wrap {margin-bottom: 30px; margin-top: 30px;width: 65%; padding: 20px 20px 20px 20px; border: 1px solid #efefef; }
+.ranking-box-contents { width: 30% }
+.ranking-box-review {
+  width: 35%;
+  text-align: right;
+  padding-right: 20px;
+}
+.ranking-best-wrap {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 65%;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #afafaf;
+  background: #fff;
+}
+.ranking-each-a {
+  text-decoration: none;
+  color: black;
+}
+
 /* products */
 .new-wrap {
   width: 70%;

@@ -23,11 +23,12 @@ class ManualsController < ApplicationController
   def category
     @p = params[:category]
     @manuals = Manual.where(:category => @p)
-    if current_user.userspec
-      sorting(@manuals)
-    elsif
-      @manuals = @manuals.order("created_at DESC")
-    end
+    @manuals = @manuals.order("created_at DESC")
+    # if current_user.userspec
+    #   sorting(@manuals)
+    # elsif
+    #   @manuals = @manuals.order("created_at DESC")
+    # end
   end
 
   def show
