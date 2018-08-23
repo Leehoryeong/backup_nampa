@@ -67,9 +67,9 @@
       <% end %>
     </div>
   <% else %>
-  <div class="alert alert-primary manuals-best-title">
-    <strong><%= link_to "유저스펙", new_userspec_path %></strong>을 등록해보세요!
-  </div>
+    <h4 align="center" class="manuals-best-title">
+      <span style="color: #1A2E65;"><%= current_user.nickname %></span> 님! <%= link_to "유저스펙", new_userspec_path %></strong>을 등록해보세요.
+    </h4>
   <% end %>
 </div>
 
