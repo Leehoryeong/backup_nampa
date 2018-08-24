@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--<h3 align="center"><%= current_user.nickname %>님 맞춤제품 정보입니다.</h3>-->
 <!--<p align="center" style="margin-top:5pt; color:#7F8C8D; font-size:10pt;">-->
 <!--  <%= current_user.userspec['skintype'] %> <%= current_user.userspec['age'] %>-->
@@ -16,6 +17,33 @@
         <strong><%= @products_best[i][0] %></strong> 맞춤제품 
 
       </h3>
+=======
+<h3 align="center" class="custom-category-title custom-category-header">
+  <span style="color: #1A2E65;"><%= current_user.nickname %></span> 님의 맞춤제품 정보입니다.
+</h3>
+<p align="center" class="custom-title-below" style="color: #7F8C8D;">
+  <span class="badge badge-pill badge-success">
+    <%= current_user.userspec['skintype'] %>
+  </span>
+  <span class="badge badge-pill badge-success">
+    <%= current_user.userspec['age'] %>
+  </span>
+  <% box =['atopy', 'pimple', 'allergy', 'bb', 'lip', 'eyebrow', 'eyeline'] %>
+  <% box.each do |key| %>
+    <% if current_user.userspec[key] == true %>
+      <span class="badge badge-pill badge-info">
+        <%= key %>
+      </span>
+    <% end %>
+  <% end %>정보를 반영했습니다.
+  <br>
+</p>
+<% (0..3).each do |i| %>
+  <div class="custom-products-wrap">
+    <div class="custom-category-title">
+      당신의 <strong class="custom-category-span"><%= @products_best[i][0] %></strong>정보에 알맞은 상위 1~4위 제품 입니다.
+    </div>
+>>>>>>> a7564b9da9e81960598c67efff06d45b9341f528
     <div class="row d-flex justify-content-center" >
       <% @products_best[i][1].each do |product| %>
         <div class="col-12 col-lg-3 col-md-4 col-sm-6">

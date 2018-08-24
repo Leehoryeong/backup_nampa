@@ -6,6 +6,8 @@ class CustomController < ApplicationController
     if current_user.userspec
       @userspec = current_user.userspec
       redirect_to '/custom'
+    else
+      redirect_to new_userspec_path
     end
   end
 
@@ -14,19 +16,20 @@ class CustomController < ApplicationController
       @products = Product.all
       sorting(@products)
     elsif
-      review(@products = Product.all.order("created_at DESC"))
+      redirect_to new_userspec_path
+      # review(@products = Product.all.order("created_at DESC"))
     end
   end
 
-  def category
-    @p = params[:category]
-    @products = Product.where(:category => @p)
-    if current_user.userspec
-      sorting(@products)
-    elsif
-      @products = @products.order("created_at DESC")
-    end
-  end
+  # def category
+  #   @p = params[:category]
+  #   @products = Product.where(:category => @p)
+  #   if current_user.userspec
+  #     sorting(@products)
+  #   elsif
+  #     @products = @products.order("created_at DESC")
+  #   end
+  # end
 
   def rating_avr(product)
     # 제품의 리뷰 배열(reviews)에 저장
@@ -109,7 +112,7 @@ class CustomController < ApplicationController
           @products_best[2][1] << p
         end
       else
-        if @products_best[0][1].length < 4
+        if @products_best[3][1].length < 4
           @products_best[3][1] << p
         end
       end

@@ -52,15 +52,22 @@
     <% @manual.comments.each do |c| %>
       <div class="comments-line d-flex justify-content-center">
         <div class="comments-line-left">
-        <strong><%= c.user.nickname %></strong>&nbsp
-        <span class="comments-contents"><%= c.body %></span>
+          <strong><%= c.user.nickname %></strong>&nbsp
+          <span class="comments-contents"><%= c.body %></span>
         </div>
-        <div class="comments-line-middle">
-          <%= time_ago_in_words(c.created_at) %> 전
-        </div>
-        <div class="comments-line-right d-flex justify-content-center">
-          <a class="delete-comment" href="<%= manual_comment_path(@manual, c) %>" data-method="delete" data-confirm="정말로 삭제하시겠습니까?">x</a>
-        </div>
+        <% if current_user == c.user %>
+          <div class="comments-line-middle">
+            <%= time_ago_in_words(c.created_at) %> 전
+          </div>
+
+          <div class="comments-line-right">
+            <a class="delete-comment" href="<%= manual_comment_path(@manual, c) %>" data-method="delete" data-confirm="정말로 삭제하시겠습니까?">x</a>
+          </div>
+        <% else %>
+          <div class="comments-line-middle comments-line-middle-not">
+            <%= time_ago_in_words(c.created_at) %> 전
+          </div>
+        <% end %>
       </div>
     <% end %>
 

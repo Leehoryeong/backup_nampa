@@ -4,14 +4,12 @@ class RankingController < ApplicationController
   def index
       @products = Product.all.order("created_at DESC")
       sorting(@products)
-      @ranking = 1
   end
 
   def category
     @p = params[:category]
     @products = Product.where(:category => @p)
     sorting(@products)
-    @ranking = 1
   end
 
 #별점을 기준으로 소팅
